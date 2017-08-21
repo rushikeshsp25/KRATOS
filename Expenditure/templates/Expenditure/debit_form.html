@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+{% extends 'Expenditure/base.html' %}
+{% block title %}Debits{% endblock %}
+{% block albums_active %}active{% endblock %}
+
+{% block body %}
+<!-- DOCTYPE -->
+
+<html lang="en">
+  <head>
+
+      {% load staticfiles %}
+    <meta charset="utf-8">
+    <!-- Viewport Meta Tag -->
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M" crossorigin="anonymous">
+    <link rel="stylesheet" href="{% static 'font-awesome-4.7.0/css/font-awesome.min.css' %}">
+  </head>
+  <body background="{% static 'b7.png' %}">
+
+  <div class="conatiner-fulid">
+
+   <div class="row mt-2">
+<div class="col-sm-1">
+  </div>
+</div>
+<div class="row mt-2">
+<div class="col-sm-1">
+</div>
+<div class="col-sm-10">
+<!-- Debit input goes here-->
+<div class="card">
+  <h4 class="card-header">Debits</h4>
+  <div class="card-body">
+  <!--Form -->
+  <form>
+  <div class="form-row">
+
+    <div class="form-group col-md-6">
+        <label for="id_item" class="col-form-label">Item</label>
+        <input type="text" class="form-control" id="id_item" placeholder="item">
+    </div>
+
+    <div class="form-group col-md-6">
+      <label for="id_quant" class="col-form-label">Quantity</label>
+
+    <div class="input-group">
+      <input type="text" class="form-control" aria-label="units" id="id_quant" placeholder="Enter Quantity">
+
+      <div class="input-group-btn">
+      <button type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          Kg
+      </button>
+
+        <div class="dropdown-menu dropdown-menu-right">
+          <a class="dropdown-item" href="#">Ltr</a>
+          <a class="dropdown-item" href="#">meter</a>
+          <a class="dropdown-item" href="#">Gram</a>
+          <div role="separator" class="dropdown-divider"></div>
+          <a class="dropdown-item" href="#">nugs</a>
+        </div>
+      </div>
+    </div>
+
+    </div>
+  </div>
+
+   <div class="form-row">
+    <div class="form-group col-md-6">
+      <label for="inputprice" class="col-form-label">Price</label>
+      <input type="text" class="form-control" id="inputprice" placeholder="Enter Price">
+    </div>
+  </div>
+
+  <div class="form-row">
+    <div class="form-group col-md-12">
+      <!-- adv Toggel here-->
+      <div id="exampleAccordion" data-children=".item">
+        <div class="item">
+          <a data-toggle="collapse" data-parent="#exampleAccordion" href="#exampleAccordion2" aria-expanded="false" aria-controls="exampleAccordion2">
+            More Fields
+          </a>
+          <div id="exampleAccordion2" class="collapse" role="tabpanel">
+
+            <form>
+
+            <!--1st row start-->
+            <div class="form-row">
+                <div class="form-group col-md-6 mt-2">
+                    <label  class="col-form-label">Tax</label><br>
+                    <label class="radio-inline"><input type="radio" name="optradio">GST</label>
+                    <label class="radio-inline"><input type="radio" name="optradio">NON-GST</label>
+                </div>
+            </div>
+            <!--2nd row starts-->
+            <div class="form-row">
+
+                <div class="form-group col-lg-12">
+                    <label for="inputsys" class="col-form-label">System</label><br>
+                    <div class="form-check form-check-inline">
+                        <label class="form-check-label">
+                        <input class="form-check-input" type="checkbox" id="inputsys" value="breaks"> Breaks
+                        </label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                        <label class="form-check-label">
+                        <input class="form-check-input" type="checkbox" id="inputsys" value="suspn"> Suspension
+                        </label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                        <label class="form-check-label">
+                        <input class="form-check-input" type="checkbox" id="inputsys" value="chasis"> Chasis
+                        </label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                        <label class="form-check-label">
+                        <input class="form-check-input" type="checkbox" id="inputsys" value="engine"> Engine
+                        </label>
+                    </div>
+
+                    <div class="form-check form-check-inline">
+                        <label class="form-check-label">
+                        <input class="form-check-input" type="checkbox" id="inputsys" value="misc"> Misc
+                        </label>
+                    </div>
+               </div>
+
+            </div>
+              <!--3rd row starts-->
+            <div class="form-row">
+                <div class="form-group col-md-6">
+                    <div class="dropdown">
+                        <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            Catagory
+                        </button>
+                      <div class="dropdown-menu" aria-labelledby="dropdownMenu2">
+                        <button class="dropdown-item" type="button">Material</button>
+                        <button class="dropdown-item" type="button">Stationary</button>
+                        <button class="dropdown-item" type="button">Other</button>
+                      </div>
+                    </div>
+
+                </div>
+            </div>
+
+            </form>
+
+          </div>
+      </div>
+  </div>
+
+      <!-- adv toggel end-->
+    </div>
+  </div>
+
+  <button type="submit" class="btn btn-primary">Add</button>
+</form>
+  </div>
+</div>
+
+</div>
+<div class="col-sm-1">
+</div>
+</div>
+  </div>
+      <!-- JavaScript: placed at the end of the document so the pages load faster -->
+    <!-- jQuery library -->
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+
+    <!-- Popper -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js" integrity="sha384-b/U6ypiBEHpOf/4+1nzFpr53nxSS+GLCkfwBdFNTxtclqqenISfwAzpKaMNFNmj4" crossorigin="anonymous"></script>
+
+    <!-- Latest compiled and minified Bootstrap JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/js/bootstrap.min.js" integrity="sha384-h0AbiXch4ZDo7tp9hKZ4TsHbi047NrKGLO3SEJAg45jXxnGIfYzk4Si90RDIqNm1" crossorigin="anonymous"></script>
+  </body>
+</html>
+{% endblock %}
+l>

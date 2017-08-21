@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %}KRATOS{% endblock %}</title>
+    {% load staticfiles %}
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M" crossorigin="anonymous">
+    <link rel="stylesheet" href="{% static 'font-awesome-4.7.0/css/font-awesome.min.css' %}">
+    <link rel="shortcut icon" type="image/png" href="{%  static 'favicon.ico' %}"/>
+    <link href='https://fonts.googleapis.com/css?family=Satisfy' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" type="text/css" href="{% static 'Expenditure/style.css' %}"/>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+
+
+
+</head>
+<body>
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <a class="navbar-brand" href="{% url 'Expenditure:index' %}"><img src="{% static 'logo.png' %}" width="60" height="30" class="d-inline-block align-top" alt="">Kratos</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item active">
+        <a class="nav-link" href="{% url 'Expenditure:credits' %}">
+        <span class="#"></span>&nbsp;
+        Credits <span class="sr-only">(current)</span></a>
+      </li>
+      <li class="nav-item active">
+        <a class="nav-link" href="{% url 'Expenditure:debits' %}">
+        <span class="#" aria-hidden="true"></span>&nbsp;
+        Debits <span class="sr-only">(current)</span></a>
+      </li>
+
+    </ul>
+
+      <ul class="navbar-nav navbar-right">
+      <li class="nav-item active">
+        <a class="nav-link" href="{% url 'Expenditure:create_new_user' %}">
+        <span class="#"></span>&nbsp;
+        Create New User <span class="sr-only">(current)</span></a>
+      </li>
+      <li class="nav-item active">
+        <a class="nav-link" href="{% url 'Expenditure:logout_user' %}">
+        <span class="#" aria-hidden="true"></span>&nbsp;
+        hello {{user.username}} <span class="sr-only">(current)</span></a>
+      </li>
+
+      <li class="nav-item active">
+        <a class="nav-link" href="{% url 'Expenditure:logout_user' %}">
+        <span class="#" aria-hidden="true"></span>&nbsp;
+        Logout <span class="sr-only">(current)</span></a>
+      </li>
+
+    </ul>
+  </div>
+</nav>
+{% block body %}
+{% endblock %}
+</body>
+</html>

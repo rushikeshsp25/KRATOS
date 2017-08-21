@@ -1,0 +1,66 @@
+{% extends 'Expenditure/base.html' %}
+{% block title %}Create New User{% endblock %}
+{% block albums_active %}active{% endblock %}
+
+{% block body %}
+<div class="container-fluid">
+    <div class="row mt-2">
+<div class="col-sm-1">
+	</div>
+</div>
+
+    <div class="row">
+	<div class="col-sm-1">
+	</div>
+	<div class="col-sm-6">
+
+
+          <div class="card">
+				<div class="card-header p-b-0">
+					<h5 class="card-title">
+						Register
+					</h5>
+				</div>
+				<div class="card-block">
+					<form class="form-group" role="form" action="" method="post" enctype="multipart/form-data">
+                            {% csrf_token %}
+                            {% include 'Expenditure/form_template.html' %}
+                      <div class="form-group">
+                            <div class="col-sm-offset-2 col-sm-10">
+                                <button type="submit" class="btn btn-success">Submit</button>
+                            </div>
+                      </div>
+
+                    </form>
+				</div>
+			</div>
+        </div>
+
+
+        <div class="col-sm-12 col-md-5">
+            <div class="panel panel-default">
+                <div class="panel-body">
+                    <h3>IMPORTANT</h3>
+                    <ul>
+                        <li>You Being Admin have authority to add New user.</li>
+                        <li>Once new user is added he/she can view+edit+delete all information.</li>
+                        <li>Add new user on your risk.</li>
+                    </ul>
+                    <h3>How do I add New User?</h3>
+                    <ol>
+                        <li>Choose the Username according to your preference(no Restriction).</li>
+                        <li>Enter Valid email id of user that you are adding.</li>
+                        <li>Select Secure Password(no Restrictiion)</li>
+                    </ol>
+                    <h3>Some Password best practices</h3>
+                    <ul>
+                        <li>Use two numbers in the first eight characters.</li>
+                        <li>Pick long passwords, at least 8 characters in length.</li>
+                        <li>Don't use a common dictionary word, a name, a string of numbers, or your User ID.</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
