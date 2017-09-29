@@ -1,177 +1,206 @@
 {% extends 'Expenditure/base.html' %}
 {% block title %}Debits{% endblock %}
-{% block albums_active %}active{% endblock %}
 
 {% block body %}
 {% load staticfiles %}
-
-    <div class="conatiner-fulid">
-  <div class="row mt-2">
-<div class="col-sm-1">
-  </div>
-</div>
-<div class="row mt-2">
-<div class="col-sm-1">
-</div>
-<div class="col-sm-10">
-<!-- Debit input goes here-->
-<div class="card">
-  <h4 class="card-header">Debits</h4>
-  <div class="card-body">
-  <!--Form -->
-  <form>
-  <div class="form-row">
-    <div class="form-group col-md-6">
-      <label for="inputitem" class="col-form-label">Item</label>
-      <input type="text" class="form-control" id="inputitem" placeholder="Enter Item">
-    </div>
-    <div class="form-group col-md-6">
-      <label for="inputquant" class="col-form-label">Quantity</label>
-          <div class="input-group">
-      <input type="text" class="form-control" aria-label="units" id="inputquant" placeholder="Enter Quantity">
-      <div class="input-group-btn">
-        <button type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-          Measure
-        </button>
-        <div class="dropdown-menu dropdown-menu-right">
-          <a class="dropdown-item" href="#">Ltr</a>
-          <a class="dropdown-item" href="#">Kg</a>
-          <a class="dropdown-item" href="#">meter</a>
-          <a class="dropdown-item" href="#">Gram</a>
-          <div role="separator" class="dropdown-divider"></div>
-          <a class="dropdown-item" href="#">nugs</a>
-
+<div class="conatiner-fulid">
+    <div class="row mt-2">
+        <div class="col-sm-1">
         </div>
-      </div>
     </div>
 
+    <div class="row mt-2">
+        <div class="col-sm-1">
+        </div>
+
+        <div class="col-sm-10">
+            <div class="card">
+                  <h4 class="card-header">Debits</h4>
+                  <div class="card-body">
+                      <form class="form-horizontal" role="form" action="" method="post" enctype="multipart/form-data">
+                          {% csrf_token %}
+                          <div class="form-row">
+                              <div class="form-group col-md-6">
+                                  <label  class="col-form-label">Item</label>
+                                  <p>{% if form.product_name.errors %}
+                                      <span class="error">
+                                          {{ form.product_name.errors|join:", " }}
+                                      </span>
+                                      {% endif %}
+                                  </p>
+                                  {{form.product_name}}
+
+                              </div>
+                              <div class="form-group col-md-6">
+                                  <label  class="col-form-label">Quantity</label>
+                                  <div class="input-group">
+                                      <p>{% if form.quantity.errors %}
+                                      <span class="error">
+                                          {{ form.quantity.errors|join:", " }}
+                                      </span>
+                                      {% endif %}
+                                      </p>
+                                      {{form.quantity}}
+                                      <div class="dropdown">
+                                        {{form.unit}}
+                                      </div>
+                                  </div>
+                              </div>
+                          </div>
+                          <div class="form-row">
+                              <div class="form-group col-md-6">
+                                  <label  class="col-form-label">Price</label>
+                                  <p>{% if form.price.errors %}
+                                      <span class="error">
+                                          {{ form.price.errors|join:", " }}
+                                      </span>
+                                      {% endif %}
+                                  </p>
+                                      {{form.price}} RS
+                              </div>
+                          </div>
+                          <div class="form-row">
+                              <div class="form-group col-md-12">
+                                  <div id="exampleAccordion" data-children=".item">
+                                      <div class="item">
+                                          <a data-toggle="collapse" data-parent="#exampleAccordion" href="#exampleAccordion2" aria-expanded="false" aria-controls="exampleAccordion2">
+                                              Advance
+                                          </a>
+                                          <div id="exampleAccordion2" class="collapse" role="tabpanel">
+                                              <form>
+                                                  <div class="form-row">
+                                                      <div class="form-group col-md-6 mt-2">
+                                                          <label  class="col-form-label">Tax</label><br>
+                                                          <p>{% if form.tax.errors %}
+                                                              <span class="error">
+                                                                  {{ form.tax.errors|join:", " }}
+                                                              </span>
+                                                              {% endif %}
+                                                          </p>
+                                                              {{form.tax}}
+                                                          <div class="conatiner mt-4">
+                                                              <label  class="col-form-label">System</label><br>
+                                                              <div class="form-check form-check-inline">
+                                                                  <label class="form-check-label">
+                                                                      {{form.sys_break}} Breaks
+                                                                  </label>
+                                                              </div>
+                                                              <div class="form-check form-check-inline">
+                                                                  <label class="form-check-label">
+                                                                      {{form.sys_suspension}} Suspension
+                                                                  </label>
+                                                              </div>
+                                                              <div class="form-check form-check-inline">
+                                                                  <label class="form-check-label">
+                                                                      {{form.sys_chasis}} Chasis
+                                                                  </label>
+                                                              </div>
+                                                              <div class="form-check form-check-inline">
+                                                                  <label class="form-check-label">
+                                                                      {{form.sys_engine}} Engine
+                                                                  </label>
+                                                              </div>
+                                                              <div class="form-check form-check-inline">
+                                                                  <label class="form-check-label">
+                                                                      {{form.sys_misc}} Misc
+                                                                  </label>
+                                                              </div>
+                                                          </div>
+                                                      </div>
+                                                      <div class="form-group col-md-6 mt-2">
+                                                          <div class="form-group">
+                                                              <label for="comment">Remark:</label>
+                                                              <textarea class="form-control" rows="5" id="comment"></textarea>
+                                                          </div>
+                                                      </div>
+                                                  </div>
+                                                  <!--2nd row starts
+                                                  <div class="form-row">
+                                                  <div class="form-group col-lg-12">
+                                                  </div>
+                                                  </div>-->
+
+                                                  <!--3rd row starts-->
+                                                  <div class="form-row">
+                                                      <div class="form-group col-md-6">
+                                                          <label>Category:</label>
+                                                          <div class="dropdown">
+                                                              {{form.category}}
+                                                          </div>
+                                                      </div>
+                                                  </div>
+                                                  <button type="submit" class="btn btn-success " >Add</button>
+                                                  <button type="submit" class="btn btn-primary mx-3" data-toggle="modal" data-target="#exampleModal">Clear</button>
+                                              </form>
+                                          </div>
+                                      </div>
+                                  </div>
+                                  <!-- adv toggel end-->
+                              </div>
+                          </div>
+
+                          <!-- Modal -->
+                          <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                              <div class="modal-dialog" role="document">
+                                  <div class="modal-content">
+                                      <div class="modal-header">
+                                          <h5 class="modal-title" id="exampleModalLabel">Error..!</h5>
+                                          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                              <span aria-hidden="true">&times;</span>
+                                          </button>
+                                      </div>
+                                      <div class="modal-body">
+                                           Sorry, This module has not configured yet Tjc is working on it.
+                                  </div>
+                              </div>
+                          </div>
+                  </div>
+                      </form>
+                  </div>
+            </div>
+        </div>
+        <div class="col-sm-1">
+        </div>
     </div>
-  </div>
-
-   <div class="form-row">
-    <div class="form-group col-md-6">
-      <label for="inputprice" class="col-form-label">Price</label>
-      <input type="text" class="form-control" id="inputprice" placeholder="Enter Price">
+    <!--display recent debits -->
+    <div class="card mt-2">
+        <div class="card-header" role="tab" id="headingTwo">
+            <h5 class="mb-0">
+                <a class="collapsed text-dark" data-toggle="collapse" href="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo"><i class="fa fa-area-chart" aria-hidden="true"></i>
+                    Recent Transaction
+                </a>
+            </h5>
+        </div>
+        <div id="collapseTwo" class="collapse" role="tabpanel" aria-labelledby="headingTwo" data-parent="#accordion">
+            <div class="card-body">
+                <table class="table">
+                    <thead class="thead-inverse">
+                    <tr>
+                        <th>Debit No</th>
+                        <th>Name of Product</th>
+                        <th>Price</th>
+                        <th>Date</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    {% for debit in debits%}
+                    <tr>
+                        <th scope="row">{{debit.id}}</th>
+                        <td>{{debit.product_name}}</td>
+                        <td>{{debit.price}}</td>
+                        <td>{{debit.date_time}}</td>
+                    </tr>
+                    {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
     </div>
-  </div>
-
-  <div class="form-row">
-    <div class="form-group col-md-12">
-      <!-- adv Toggel here-->
-      <div id="exampleAccordion" data-children=".item">
-        <div class="item">
-          <a data-toggle="collapse" data-parent="#exampleAccordion" href="#exampleAccordion2" aria-expanded="false" aria-controls="exampleAccordion2">
-      Advance
-         </a>
-          <div id="exampleAccordion2" class="collapse" role="tabpanel">
-            <form>
-
-            <!--1st row start-->
-              <div class="form-row">
-                <div class="form-group col-md-6 mt-2">
-                    <label  class="col-form-label">Tax</label><br>
-                    <label class="radio-inline"><input type="radio" name="optradio">GST</label>&nbsp;&nbsp;&nbsp;&nbsp;
-                    <label class="radio-inline"><input type="radio" name="optradio">NON-GST</label>
-
-                    <div class="conatiner mt-4">
-                <label for="input1" class="col-form-label">System</label><br>
-                    <div class="form-check form-check-inline">
-                        <label class="form-check-label">
-                        <input class="form-check-input" type="checkbox" id="input1" value="option1"> Breaks
-                        </label>
-                    </div>
-                <div class="form-check form-check-inline">
-                        <label class="form-check-label">
-                        <input class="form-check-input" type="checkbox" id="input2" value="option2"> Suspension
-                        </label>
-                </div>
-                <div class="form-check form-check-inline">
-                        <label class="form-check-label">
-                         <input class="form-check-input" type="checkbox" id="input3" value="option3"> Chasis
-                        </label>
-                </div>
-                <div class="form-check form-check-inline">
-                        <label class="form-check-label">
-                          <input class="form-check-input" type="checkbox" id="input4" value="option4"> Engine
-                        </label>
-                      </div>
-                      <div class="form-check form-check-inline">
-                        <label class="form-check-label">
-                          <input class="form-check-input" type="checkbox" id="input5" value="option5"> Misc
-                        </label>
-
-               </div>
-                </div>
-                </div>
-                <div class="form-group col-md-6 mt-2">
-                 <div class="form-group">
-  <label for="comment">Remark:</label>
-  <textarea class="form-control" rows="5" id="comment"></textarea>
-</div>
-              </div>
-              </div>
-            <!--2nd row starts
-            <div class="form-row">
-                <div class="form-group col-lg-12">
-
-               </div>
-
-            </div>-->
-              <!--3rd row starts-->
-                <div class="form-row">
-                <div class="form-group col-md-6">
-                    <div class="dropdown">
-                        <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            Select Catagory
-                        </button>
-                      <div class="dropdown-menu" aria-labelledby="dropdownMenu2">
-                        <button class="dropdown-item" type="button">Material</button>
-                        <button class="dropdown-item" type="button">Cat2</button>
-                        <button class="dropdown-item" type="button">Cat3</button>
-                      </div>
-                    </div>
-                </div>
-                </div>
-
-            </form>
-
-          </div>
-      </div>
-  </div>
-
-      <!-- adv toggel end-->
-    </div>
-  </div>
-
-  <button type="submit" class="btn btn-primary " data-toggle="modal" data-target="#exampleModal">Add</button>
-  <button type="submit" class="btn btn-primary mx-3" data-toggle="modal" data-target="#exampleModal">Clear</button>
-  <!-- Modal -->
-<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">Error..!</h5>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
-      <div class="modal-body">
-        Sorry, This module has not configured yet Tjc is working on it.
-      </div>
-
-    </div>
-  </div>
-</div>
-</form>
-  </div>
 </div>
 
+
 </div>
-<div class="col-sm-1">
-</div>
-</div>
-</div>
-    <!-- JavaScript: placed at the end of the document so the pages load faster -->
+<!-- JavaScript: placed at the end of the document so the pages load faster -->
     <!-- jQuery library -->
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
 
@@ -191,6 +220,6 @@
 
     <!-- Latest compiled and minified Bootstrap JavaScript -->
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/js/bootstrap.min.js" integrity="sha384-h0AbiXch4ZDo7tp9hKZ4TsHbi047NrKGLO3SEJAg45jXxnGIfYzk4Si90RDIqNm1" crossorigin="anonymous"></script>
-  </body>
 
 {% endblock %}
+

@@ -2,9 +2,26 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="4b7d4d2e-fe05-4eb3-9fa5-cec81fc5929c" name="Default" comment="">
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Expenditure/static/Expenditure/js/script.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Expenditure/templates/Expenditure/Dashboard.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Expenditure/templates/Expenditure/report_result.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Expenditure/templates/Expenditure/reports.html" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Expenditure/static/Expenditure/js/main.js" afterPath="" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/db.sqlite3" afterPath="$PROJECT_DIR$/db.sqlite3" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Expenditure/admin.py" afterPath="$PROJECT_DIR$/Expenditure/admin.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Expenditure/forms.py" afterPath="$PROJECT_DIR$/Expenditure/forms.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Expenditure/models.py" afterPath="$PROJECT_DIR$/Expenditure/models.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Expenditure/static/Expenditure/style.css" afterPath="$PROJECT_DIR$/Expenditure/static/Expenditure/style.css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Expenditure/templates/Expenditure/base.html" afterPath="$PROJECT_DIR$/Expenditure/templates/Expenditure/base.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Expenditure/templates/Expenditure/create_new_user.html" afterPath="$PROJECT_DIR$/Expenditure/templates/Expenditure/create_new_user.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Expenditure/templates/Expenditure/credit_form.html" afterPath="$PROJECT_DIR$/Expenditure/templates/Expenditure/credit_form.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Expenditure/templates/Expenditure/debit_form.html" afterPath="$PROJECT_DIR$/Expenditure/templates/Expenditure/debit_form.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Expenditure/templates/Expenditure/index.html" afterPath="$PROJECT_DIR$/Expenditure/templates/Expenditure/index.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Expenditure/templates/Expenditure/login.html" afterPath="$PROJECT_DIR$/Expenditure/templates/Expenditure/login.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Expenditure/urls.py" afterPath="$PROJECT_DIR$/Expenditure/urls.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Expenditure/views.py" afterPath="$PROJECT_DIR$/Expenditure/views.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/KRATOS/settings.py" afterPath="$PROJECT_DIR$/KRATOS/settings.py" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -15,59 +32,73 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="views.py" pinned="false" current-in-tab="false">
+      <file leaf-file-name="Dashboard.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Expenditure/templates/Expenditure/Dashboard.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="0">
+              <caret line="58" column="62" lean-forward="false" selection-start-line="58" selection-start-column="62" selection-end-line="58" selection-end-column="62" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="script.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Expenditure/static/Expenditure/js/script.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-20">
+              <caret line="103" column="6" lean-forward="false" selection-start-line="103" selection-start-column="6" selection-end-line="103" selection-end-column="6" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="views.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/Expenditure/views.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="0">
-              <caret line="25" column="24" lean-forward="false" selection-start-line="25" selection-start-column="24" selection-end-line="25" selection-end-column="24" />
+            <state relative-caret-position="77">
+              <caret line="162" column="51" lean-forward="false" selection-start-line="162" selection-start-column="51" selection-end-line="162" selection-end-column="51" />
               <folding>
-                <marker date="1503340674998" expanded="false" signature="0:12" ph="import ..." />
+                <element signature="e#0#51#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="index.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Expenditure/templates/Expenditure/index.html">
+      <file leaf-file-name="models.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Expenditure/models.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="252">
-              <caret line="14" column="0" lean-forward="false" selection-start-line="14" selection-start-column="0" selection-end-line="14" selection-end-column="0" />
+            <state relative-caret-position="313">
+              <caret line="35" column="13" lean-forward="false" selection-start-line="35" selection-start-column="4" selection-end-line="35" selection-end-column="13" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="debit_form.html" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/Expenditure/templates/Expenditure/debit_form.html">
+      <file leaf-file-name="report_result.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Expenditure/templates/Expenditure/report_result.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="126">
-              <caret line="7" column="3" lean-forward="false" selection-start-line="7" selection-start-column="3" selection-end-line="7" selection-end-column="3" />
-              <folding>
-                <element signature="e#2589#2595#0" expanded="true" />
-                <element signature="e#2595#2601#0" expanded="true" />
-                <element signature="e#2601#2607#0" expanded="true" />
-                <element signature="e#2607#2613#0" expanded="true" />
-                <element signature="e#6364#6371#1" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="create_new_user.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Expenditure/templates/Expenditure/create_new_user.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="612">
-              <caret line="34" column="22" lean-forward="true" selection-start-line="34" selection-start-column="22" selection-end-line="34" selection-end-column="22" />
+            <state relative-caret-position="178">
+              <caret line="24" column="65" lean-forward="false" selection-start-line="24" selection-start-column="65" selection-end-line="24" selection-end-column="65" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="main.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Expenditure/static/Expenditure/js/main.js">
+      <file leaf-file-name="base.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Expenditure/templates/Expenditure/base.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="0">
-              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+            <state relative-caret-position="270">
+              <caret line="35" column="41" lean-forward="true" selection-start-line="35" selection-start-column="41" selection-end-line="35" selection-end-column="71" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="urls.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Expenditure/urls.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="216">
+              <caret line="12" column="69" lean-forward="false" selection-start-line="12" selection-start-column="69" selection-end-line="12" selection-end-column="69" />
               <folding />
             </state>
           </provider>
@@ -92,6 +123,8 @@
       <find>gly</find>
       <find>product_name</find>
       <find>creditss</find>
+      <find>todays_debits</find>
+      <find>alert</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -105,27 +138,37 @@
         <option value="$PROJECT_DIR$/Expenditure/apps.py" />
         <option value="$PROJECT_DIR$/Expenditure/templates/base.html" />
         <option value="$PROJECT_DIR$/Expenditure/templates/Expenditure/base_visitor.html" />
-        <option value="$PROJECT_DIR$/Expenditure/templates/Expenditure/login.html" />
         <option value="$PROJECT_DIR$/Expenditure/templates/Expenditure/register.html" />
         <option value="$PROJECT_DIR$/KRATOS/readme" />
         <option value="$PROJECT_DIR$/Expenditure/templates/Expenditure/add_user.html" />
         <option value="$PROJECT_DIR$/Expenditure/templates/Expenditure/debits_form.html" />
         <option value="$PROJECT_DIR$/KRATOS/urls.py" />
-        <option value="$PROJECT_DIR$/Expenditure/templates/Expenditure/form_template.html" />
-        <option value="$PROJECT_DIR$/Expenditure/templates/Expenditure/create_new_user.html" />
-        <option value="$PROJECT_DIR$/Expenditure/urls.py" />
         <option value="$PROJECT_DIR$/KRATOS/__init__.py" />
         <option value="$PROJECT_DIR$/Expenditure/templates/Expenditure/success.html" />
-        <option value="$PROJECT_DIR$/Expenditure/admin.py" />
-        <option value="$PROJECT_DIR$/Expenditure/forms.py" />
-        <option value="$PROJECT_DIR$/Expenditure/templates/Expenditure/base.html" />
-        <option value="$PROJECT_DIR$/KRATOS/settings.py" />
-        <option value="$PROJECT_DIR$/Expenditure/views.py" />
-        <option value="$PROJECT_DIR$/Expenditure/templates/Expenditure/index.html" />
-        <option value="$PROJECT_DIR$/Expenditure/models.py" />
-        <option value="$PROJECT_DIR$/Expenditure/templates/Expenditure/credit_form.html" />
         <option value="$PROJECT_DIR$/Expenditure/static/Expenditure/js/main.js" />
+        <option value="$PROJECT_DIR$/Expenditure/templates/Expenditure/login.html" />
+        <option value="$PROJECT_DIR$/Expenditure/templates/Expenditure/create_new_user.html" />
+        <option value="$PROJECT_DIR$/Expenditure/templates/Expenditure/form_template.html" />
+        <option value="$PROJECT_DIR$/Expenditure/templates/Expenditure/index.html" />
+        <option value="$PROJECT_DIR$/Expenditure/admin.py" />
+        <option value="$PROJECT_DIR$/Expenditure/static/Expenditure/js/credit.js" />
+        <option value="$PROJECT_DIR$/Expenditure/static/Expenditure/js/s_todays_expense.js" />
+        <option value="$PROJECT_DIR$/Expenditure/static/Expenditure/js/s_todays_credits.js" />
+        <option value="$PROJECT_DIR$/Expenditure/static/Expenditure/js/cpie.js" />
+        <option value="$PROJECT_DIR$/Expenditure/forms.py" />
+        <option value="$PROJECT_DIR$/Expenditure/static/Expenditure/js/s_balence.js" />
+        <option value="$PROJECT_DIR$/KRATOS/settings.py" />
         <option value="$PROJECT_DIR$/Expenditure/templates/Expenditure/debit_form.html" />
+        <option value="$PROJECT_DIR$/Expenditure/templates/Expenditure/credit_form.html" />
+        <option value="$PROJECT_DIR$/Expenditure/static/Expenditure/style.css" />
+        <option value="$PROJECT_DIR$/Expenditure/templates/Expenditure/base.html" />
+        <option value="$PROJECT_DIR$/Expenditure/static/Expenditure/js/script.js" />
+        <option value="$PROJECT_DIR$/Expenditure/templates/Expenditure/Dashboard.html" />
+        <option value="$PROJECT_DIR$/Expenditure/urls.py" />
+        <option value="$PROJECT_DIR$/Expenditure/templates/Expenditure/reports.html" />
+        <option value="$PROJECT_DIR$/Expenditure/models.py" />
+        <option value="$PROJECT_DIR$/Expenditure/templates/Expenditure/report_result.html" />
+        <option value="$PROJECT_DIR$/Expenditure/views.py" />
       </list>
     </option>
   </component>
@@ -170,7 +213,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -226,6 +268,7 @@
           <select />
         </subPane>
       </pane>
+      <pane id="Scope" />
       <pane id="Scratches" />
     </panes>
   </component>
@@ -233,18 +276,19 @@
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="com.intellij.ide.scratch.LRUPopupBuilder$2/Languages" value="TEXT" />
     <property name="DefaultHtmlFileTemplate" value="HTML File" />
-    <property name="settings.editor.selected.configurable" value="project.propVCSSupport.Mappings" />
+    <property name="settings.editor.selected.configurable" value="vcs.Git" />
   </component>
   <component name="RecentsManager">
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/Expenditure/static" />
-      <recent name="$PROJECT_DIR$/Expenditure/templates/Expenditure" />
-    </key>
     <key name="CopyFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/Expenditure/static" />
       <recent name="$PROJECT_DIR$/Expenditure/templates/Expenditure" />
+      <recent name="$PROJECT_DIR$/Expenditure/static/Expenditure/js" />
+      <recent name="$PROJECT_DIR$/Expenditure/static" />
       <recent name="$PROJECT_DIR$/Expenditure" />
       <recent name="$PROJECT_DIR$/Expenditure/templates" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/Expenditure/templates/Expenditure" />
+      <recent name="$PROJECT_DIR$/Expenditure/static" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -378,30 +422,37 @@
       <option name="project" value="LOCAL" />
       <updated>1503460840373</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="Small changes in debits form">
+      <created>1503462394012</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1503462394012</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="ToolWindowManager">
     <frame x="75" y="34" width="1303" height="780" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.20478088" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.3011952" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.27863777" sideWeight="0.49163347" order="7" side_tool="true" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32972136" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33023256" sideWeight="0.49721116" order="10" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32970452" sideWeight="0.49721116" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.27838257" sideWeight="0.5083665" order="9" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.34681183" sideWeight="0.5083665" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Data View" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Data View" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32988048" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32972136" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
     </layout>
     <layout-to-restore>
@@ -411,22 +462,23 @@
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.27863777" sideWeight="0.49163347" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33023256" sideWeight="0.49721116" order="10" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32970452" sideWeight="0.49721116" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.27838257" sideWeight="0.5083665" order="9" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.20478088" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.34681183" sideWeight="0.5083665" order="9" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.29641435" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32972136" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Data View" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Data View" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32988048" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
     </layout-to-restore>
   </component>
   <component name="UnknownFeatures">
     <option featureType="com.intellij.fileTypeFactory" implementationName="*.css" />
+    <option featureType="com.intellij.fileTypeFactory" implementationName="*.js" />
   </component>
   <component name="VcsContentAnnotationSettings">
     <option name="myLimit" value="2678400000" />
@@ -438,76 +490,14 @@
     </ignored-roots>
     <MESSAGE value="credits [entry into table +display 5 recent credits]" />
     <MESSAGE value="index page updated(bullshit)" />
-    <option name="LAST_COMMIT_MESSAGE" value="index page updated(bullshit)" />
+    <MESSAGE value="Small changes in debits form" />
+    <option name="LAST_COMMIT_MESSAGE" value="Small changes in debits form" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/Expenditure/static/Expenditure/js/main.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Expenditure/templates/Expenditure/base.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="216">
-          <caret line="12" column="0" lean-forward="true" selection-start-line="12" selection-start-column="0" selection-end-line="12" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Expenditure/templates/Expenditure/login.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="45" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Expenditure/urls.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="36">
-          <caret line="2" column="22" lean-forward="false" selection-start-line="2" selection-start-column="22" selection-end-line="2" selection-end-column="22" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Expenditure/forms.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="162">
-          <caret line="9" column="22" lean-forward="false" selection-start-line="9" selection-start-column="22" selection-end-line="9" selection-end-column="22" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Expenditure/models.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="54">
-          <caret line="3" column="4" lean-forward="false" selection-start-line="3" selection-start-column="4" selection-end-line="3" selection-end-column="16" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Expenditure/templates/Expenditure/base_visitor.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="216">
-          <caret line="12" column="0" lean-forward="false" selection-start-line="12" selection-start-column="0" selection-end-line="12" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/KRATOS/readme">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/KRATOS/urls.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="90">
-          <caret line="5" column="54" lean-forward="false" selection-start-line="5" selection-start-column="54" selection-end-line="5" selection-end-column="54" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Expendiature/urls.py" />
     <entry file="file://$APPLICATION_CONFIG_DIR$/scratches/scratch.txt" />
     <entry file="file://$PROJECT_DIR$/Expendiature/views.py" />
@@ -535,22 +525,8 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Expenditure/static/Expenditure/style.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="382">
-          <caret line="27" column="1" lean-forward="false" selection-start-line="27" selection-start-column="1" selection-end-line="27" selection-end-column="1" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Expenditure/templates/Expenditure/expenditure.html" />
     <entry file="file://$PROJECT_DIR$/Expenditure/static/font-awesome-4.7.0/css/font-awesome.css" />
-    <entry file="file://$PROJECT_DIR$/Expenditure/static/favicon.ico">
-      <provider selected="true" editor-type-id="images">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Expenditure/static/b7.png" />
-    <entry file="file://$PROJECT_DIR$/Expenditure/static/logo.png" />
     <entry file="file://$PROJECT_DIR$/KRATOS/urls.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="144">
@@ -572,20 +548,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Expenditure/urls.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="90">
-          <caret line="5" column="5" lean-forward="false" selection-start-line="5" selection-start-column="5" selection-end-line="5" selection-end-column="5" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Expenditure/tests.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="36">
-          <caret line="4" column="0" lean-forward="true" selection-start-line="4" selection-start-column="0" selection-end-line="4" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Expenditure/migrations/0001_initial.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-30">
@@ -603,55 +565,6 @@
     <entry file="file://$PROJECT_DIR$/Expenditure/migrations/0003_auto_20170821_0528.py" />
     <entry file="file://$PROJECT_DIR$/Expenditure/migrations/0004_auto_20170821_0529.py" />
     <entry file="file://$PROJECT_DIR$/Expenditure/templates/Expenditure/success.html" />
-    <entry file="file://$PROJECT_DIR$/Expenditure/templates/Expenditure/login.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="54">
-          <caret line="3" column="0" lean-forward="true" selection-start-line="3" selection-start-column="0" selection-end-line="3" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/KRATOS/settings.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="553">
-          <caret line="108" column="26" lean-forward="false" selection-start-line="108" selection-start-column="26" selection-end-line="108" selection-end-column="26" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Expenditure/templates/Expenditure/form_template.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="144">
-          <caret line="8" column="12" lean-forward="false" selection-start-line="8" selection-start-column="12" selection-end-line="8" selection-end-column="12" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Expenditure/templates/Expenditure/base_visitor.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="180">
-          <caret line="10" column="67" lean-forward="false" selection-start-line="10" selection-start-column="67" selection-end-line="10" selection-end-column="67" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Expenditure/templates/Expenditure/base.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="553">
-          <caret line="53" column="31" lean-forward="false" selection-start-line="53" selection-start-column="31" selection-end-line="53" selection-end-column="31" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Expenditure/apps.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="90">
-          <caret line="7" column="24" lean-forward="true" selection-start-line="7" selection-start-column="24" selection-end-line="7" selection-end-column="24" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Expenditure/admin.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="18">
-          <caret line="4" column="34" lean-forward="false" selection-start-line="4" selection-start-column="34" selection-end-line="4" selection-end-column="34" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Expenditure/__init__.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
@@ -666,73 +579,181 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Expenditure/forms.py">
+    <entry file="file://$PROJECT_DIR$/Expenditure/static/Expenditure/js/main.js" />
+    <entry file="file://$PROJECT_DIR$/Expenditure/apps.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="324">
-          <caret line="22" column="0" lean-forward="true" selection-start-line="22" selection-start-column="0" selection-end-line="22" selection-end-column="0" />
+        <state relative-caret-position="18">
+          <caret line="1" column="0" lean-forward="true" selection-start-line="1" selection-start-column="0" selection-end-line="1" selection-end-column="0" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Expenditure/views.py">
+    <entry file="file://$PROJECT_DIR$/Expenditure/tests.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="25" column="24" lean-forward="false" selection-start-line="25" selection-start-column="24" selection-end-line="25" selection-end-column="24" />
-          <folding>
-            <marker date="1503340674998" expanded="false" signature="0:12" ph="import ..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Expenditure/models.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="144">
-          <caret line="10" column="0" lean-forward="false" selection-start-line="10" selection-start-column="0" selection-end-line="10" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Expenditure/static/Expenditure/js/main.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Expenditure/templates/Expenditure/create_new_user.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="612">
-          <caret line="34" column="22" lean-forward="true" selection-start-line="34" selection-start-column="22" selection-end-line="34" selection-end-column="22" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Expenditure/templates/Expenditure/credit_form.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="90">
-          <caret line="5" column="0" lean-forward="false" selection-start-line="5" selection-start-column="0" selection-end-line="5" selection-end-column="0" />
-          <folding />
+        <state relative-caret-position="36">
+          <caret line="4" column="0" lean-forward="true" selection-start-line="4" selection-start-column="0" selection-end-line="4" selection-end-column="0" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/Expenditure/templates/Expenditure/index.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="252">
-          <caret line="14" column="0" lean-forward="false" selection-start-line="14" selection-start-column="0" selection-end-line="14" selection-end-column="0" />
-          <folding />
+        <state relative-caret-position="144">
+          <caret line="8" column="0" lean-forward="false" selection-start-line="8" selection-start-column="0" selection-end-line="8" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Expenditure/static/favicon.ico">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Expenditure/static/b7.png">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Expenditure/admin.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="90">
+          <caret line="8" column="0" lean-forward="false" selection-start-line="8" selection-start-column="0" selection-end-line="8" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Expenditure/static/Expenditure/js/s_todays_credits.js" />
+    <entry file="file://$PROJECT_DIR$/Expenditure/static/Expenditure/js/tdonut.js" />
+    <entry file="file://$PROJECT_DIR$/Expenditure/static/Expenditure/js/s_todays_expense.js" />
+    <entry file="file://$PROJECT_DIR$/Expenditure/templates/Expenditure/form_template.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="144">
+          <caret line="8" column="12" lean-forward="true" selection-start-line="8" selection-start-column="12" selection-end-line="8" selection-end-column="12" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Expenditure/static/Expenditure/js/cpie.js" />
+    <entry file="file://$PROJECT_DIR$/Expenditure/static/Expenditure/js/s_balence.js" />
+    <entry file="file://$PROJECT_DIR$/KRATOS/settings.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1260">
+          <caret line="70" column="44" lean-forward="false" selection-start-line="70" selection-start-column="44" selection-end-line="70" selection-end-column="44" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Expenditure/static/Expenditure/style.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="161">
+          <caret line="34" column="8" lean-forward="false" selection-start-line="34" selection-start-column="8" selection-end-line="34" selection-end-column="8" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Expenditure/templates/Expenditure/create_new_user.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="161">
+          <caret line="25" column="28" lean-forward="false" selection-start-line="25" selection-start-column="28" selection-end-line="25" selection-end-column="44" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Expenditure/templates/Expenditure/credit_form.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="144">
+          <caret line="56" column="31" lean-forward="false" selection-start-line="56" selection-start-column="31" selection-end-line="56" selection-end-column="31" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Expenditure/forms.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="174">
+          <caret line="14" column="31" lean-forward="false" selection-start-line="14" selection-start-column="19" selection-end-line="14" selection-end-column="31" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Expenditure/templates/Expenditure/login.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-384">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="1" selection-end-column="37" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/Expenditure/templates/Expenditure/debit_form.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="126">
-          <caret line="7" column="3" lean-forward="false" selection-start-line="7" selection-start-column="3" selection-end-line="7" selection-end-column="3" />
+        <state relative-caret-position="102">
+          <caret line="204" column="184" lean-forward="true" selection-start-line="203" selection-start-column="3" selection-end-line="204" selection-end-column="184" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Expenditure/static/logo.png">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Expenditure/templates/Expenditure/base_visitor.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="300">
+          <caret line="25" column="41" lean-forward="true" selection-start-line="25" selection-start-column="41" selection-end-line="25" selection-end-column="72" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Expenditure/urls.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="216">
+          <caret line="12" column="69" lean-forward="false" selection-start-line="12" selection-start-column="69" selection-end-line="12" selection-end-column="69" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Expenditure/templates/Expenditure/Dashboard.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="58" column="62" lean-forward="false" selection-start-line="58" selection-start-column="62" selection-end-line="58" selection-end-column="62" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Expenditure/static/Expenditure/js/script.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-20">
+          <caret line="103" column="6" lean-forward="false" selection-start-line="103" selection-start-column="6" selection-end-line="103" selection-end-column="6" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Expenditure/templates/Expenditure/reports.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="360">
+          <caret line="20" column="89" lean-forward="false" selection-start-line="20" selection-start-column="89" selection-end-line="20" selection-end-column="89" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Expenditure/models.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="313">
+          <caret line="35" column="13" lean-forward="false" selection-start-line="35" selection-start-column="4" selection-end-line="35" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Expenditure/templates/Expenditure/base.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="270">
+          <caret line="35" column="41" lean-forward="true" selection-start-line="35" selection-start-column="41" selection-end-line="35" selection-end-column="71" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Expenditure/templates/Expenditure/report_result.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="178">
+          <caret line="24" column="65" lean-forward="false" selection-start-line="24" selection-start-column="65" selection-end-line="24" selection-end-column="65" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Expenditure/views.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="77">
+          <caret line="162" column="51" lean-forward="false" selection-start-line="162" selection-start-column="51" selection-end-line="162" selection-end-column="51" />
           <folding>
-            <element signature="e#2589#2595#0" expanded="true" />
-            <element signature="e#2595#2601#0" expanded="true" />
-            <element signature="e#2601#2607#0" expanded="true" />
-            <element signature="e#2607#2613#0" expanded="true" />
-            <element signature="e#6364#6371#1" expanded="true" />
+            <element signature="e#0#51#0" expanded="true" />
           </folding>
         </state>
       </provider>

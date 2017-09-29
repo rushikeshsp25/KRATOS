@@ -10,48 +10,55 @@
     <link href='https://fonts.googleapis.com/css?family=Satisfy' rel='stylesheet' type='text/css'>
     <link rel="stylesheet" type="text/css" href="{% static 'Expenditure/style.css' %}"/>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+    <link href="http://cdn.phpoll.com/css/animate.css" rel="stylesheet">
 
 
 
 </head>
 <body>
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-    <a class="navbar-brand" href="{% url 'Expenditure:index' %}"><img src="{% static 'logo.png' %}" width="60" height="30" class="d-inline-block align-top" alt="">Kratos</a>
+
+   <a class="navbar-brand" href="{% url 'Expenditure:index' %}">
+    <img src="{%static 'logo.png'%}" width="60" height="30" class="d-inline-block align-top theme-white" alt="">
+    Kratos
+  </a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
 
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav mr-auto">
-      <li class="nav-item active">
-        <a class="nav-link" href="{% url 'Expenditure:credits' %}">
-        <span class="#"></span>&nbsp;
-        Credits <span class="sr-only">(current)</span></a>
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle theme-white"  id="id_expenditure_dropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          Expenditure
+        </a>
+        <div class="dropdown-menu animated flipInX" aria-labelledby="navbarDropdownMenuLink">
+          <a class="dropdown-item" href="{% url 'Expenditure:debits' %}"><i class="fa fa-minus-circle" aria-hidden="true"></i>&nbsp;&nbsp;Add Debit</a>
+          <a class="dropdown-item" href="{% url 'Expenditure:credits' %}"><i class="fa fa-plus-circle" aria-hidden="true"></i>&nbsp;&nbsp;Add Credit</a>
+        </div>
       </li>
-      <li class="nav-item active">
-        <a class="nav-link" href="{% url 'Expenditure:debits' %}">
-        <span class="#" aria-hidden="true"></span>&nbsp;
-        Debits <span class="sr-only">(current)</span></a>
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle theme-white" id="id_dashboard_dropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          Dashboard
+        </a>
+        <div class="dropdown-menu animated flipInX" aria-labelledby="navbarDropdownMenuLink">
+          <a class="dropdown-item" href="{% url 'Expenditure:reports' %}"><i class="fa fa-file" aria-hidden="true"></i>&nbsp;&nbsp;Reports</a>
+          <a class="dropdown-item" href="#"><i class="fa fa-tasks" aria-hidden="true"></i>&nbsp;&nbsp;Account</a>
+          <a class="dropdown-item" href="#"><i class="fa fa-life-ring" aria-hidden="true"></i>&nbsp;&nbsp;Help</a>
+        </div>
       </li>
 
     </ul>
-
-      <ul class="navbar-nav navbar-right">
-      <li class="nav-item active">
-        <a class="nav-link" href="{% url 'Expenditure:create_new_user' %}">
-        <span class="#"></span>&nbsp;
-        Create New User <span class="sr-only">(current)</span></a>
-      </li>
-      <li class="nav-item active">
-        <a class="nav-link" href="{% url 'Expenditure:logout_user' %}">
-        <span class="#" aria-hidden="true"></span>&nbsp;
-        hello {{user.username}} <span class="sr-only">(current)</span></a>
-      </li>
-
-      <li class="nav-item active">
-        <a class="nav-link" href="{% url 'Expenditure:logout_user' %}">
-        <span class="#" aria-hidden="true"></span>&nbsp;
-        Logout <span class="sr-only">(current)</span></a>
+    <ul class="navbar-nav mr-5">
+    <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle"  id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          {{user.username}}
+        </a>
+        <div class="dropdown-menu animated flip" aria-labelledby="navbarDropdownMenuLink">
+     <div class="dropdown-item mx-auto">
+       <button type="button" class="btn btn-outline-secondary">Logout</button>
+     </div>
+ </div>
       </li>
 
     </ul>

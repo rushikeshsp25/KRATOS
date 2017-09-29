@@ -5,10 +5,15 @@ from .models import Debits
 from .models import Credits,Debits
 
 class DebitsForm(forms.ModelForm):
+    CHOICES = [(True, 'GST'),
+               (False, 'NON GST')]
+
+    tax = forms.ChoiceField(choices=CHOICES, widget=forms.RadioSelect())
 
     class Meta:
         model = Debits
-        fields = ['product_name']
+        fields = ['product_name','quantity','unit','price','tax','sys_break','sys_suspension',
+                  'sys_chasis','sys_engine','sys_misc','category']
 
 
 class CreditsForm(forms.ModelForm):

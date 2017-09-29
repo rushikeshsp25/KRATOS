@@ -26,3 +26,25 @@ ul.errorlist > li {
 .glyphicon-star.active {
     color: #FDB230;
 }
+#id_product_name{
+width:300px;
+height:30px;
+}
+
+#id_quantity{
+width:240px;
+height:30px;
+}
+
+#id_unit{
+height:30px;
+width:60px;
+}
+
+#id_price{
+height:30px;
+}
+
+#id_category{
+height:30px;
+}
