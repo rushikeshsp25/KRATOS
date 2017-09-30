@@ -10,5 +10,6 @@ urlpatterns = [
      url(r'^debits/$', views.debits,name='debits'),
      #url(r'^dashboard/$', views.dashboard,name='dashboard'),
      url(r'^reports/$', views.reports,name='reports'),
-     url(r'^report_engine/$', views.report_engine,name='report_engine'),
+     url(r'^report_result/(?P<type>[a-z]+)/(?P<subtype>[a-z]+)$', views.report_result,name='report_result'),
+
 ]

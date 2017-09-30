@@ -1,12 +1,13 @@
 from django.contrib.auth import authenticate, login
 from django.contrib.auth import logout
-from django.http import JsonResponse
+from django.http import JsonResponse,HttpResponse
 from django.core import serializers
 from django.shortcuts import render,redirect, get_object_or_404
 from .forms import UserForm,CreditsForm,DebitsForm
 from .models import Credits,Debits,Balence
 from django.db.models import Q
 from datetime import datetime,date      #to get current date and time
+
 
 def index(request):
     if not request.user.is_authenticated():
@@ -156,11 +157,47 @@ def reports(request):
     else:
         return render(request, 'Expenditure/login.html')
 
-def report_engine(request):
+def report_result(request,type,subtype):
     if request.user.is_authenticated():
-        report_type="System Wise Report"
-        report_desc="System - Engine"
-        d_objs = Debits.objects.filter(sys_engine=1).order_by('-date_time')
+        report_type=""
+        report_desc=""
+        context={}
+        d_objs=Debits()
+
+        if type=='systemwise':
+            report_type = "System Wise Report"
+            if subtype=='engine':
+                report_desc="System - Engine"
+                d_objs = Debits.objects.filter(sys_engine=1).order_by('-date_time')
+            elif subtype=='break':
+                report_desc="System - Breaks"
+                d_objs = Debits.objects.filter(sys_break=1).order_by('-date_time')
+            elif subtype=='chasis':
+                report_desc="System - Chasis"
+                d_objs = Debits.objects.filter(sys_chasis=1).order_by('-date_time')
+            elif subtype=='suspension':
+                report_desc="System - Suspension"
+                d_objs = Debits.objects.filter(sys_suspension=1).order_by('-date_time')
+            elif subtype=='misc':
+                report_desc="System - Misc"
+                d_objs = Debits.objects.filter(sys_misc=1).order_by('-date_time')
+
+        elif type=="categorywise":
+            report_type = "Category Wise Report"
+            if subtype=='catone':
+                report_desc="Category - Cat1"
+                d_objs = Debits.objects.filter(category='Cat1').order_by('-date_time')
+            elif subtype=='cattwo':
+                report_desc="Category - Cat2"
+                d_objs = Debits.objects.filter(category='Cat2').order_by('-date_time')
+            elif subtype=='catthree':
+                report_desc="Category - Cat3"
+                d_objs = Debits.objects.filter(category='Cat3').order_by('-date_time')
+            elif subtype=='other':
+                report_desc="Category - Other"
+                d_objs = Debits.objects.filter(category='Other').order_by('-date_time')
+
+
         context={
             "report_type":report_type,
             "report_desc":report_desc,
@@ -169,4 +206,3 @@ def report_engine(request):
         return render(request, 'Expenditure/report_result.html',context)
     else:
         return render(request, 'Expenditure/login.html')
-

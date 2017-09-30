@@ -18,7 +18,7 @@
           <div class="col-md-6 text-center">
               <form>
                   <input type="button" value="Genrate Reports" class="btn btn-dark"
-                         onclick="window.location.href='{% url 'Expenditure:report_engine' %}'" />
+                         onclick="window.location.href='{% url 'Expenditure:report_result' 'systemwise' 'engine' %}'" />
               </form>
           </div>
     </div>
@@ -34,8 +34,10 @@
 
           </div>
           <div class="col-md-6 text-center">
-            <button type="button" class="btn btn-dark">Genrate Reports</button>
-
+            <form>
+                  <input type="button" value="Genrate Reports" class="btn btn-dark"
+                         onclick="window.location.href='{% url 'Expenditure:report_result' 'systemwise' 'break' %}'" />
+              </form>
           </div>
     </div>
   </div>
@@ -50,8 +52,10 @@
 
           </div>
           <div class="col-md-6 text-center">
-            <button type="button" class="btn btn-dark">Genrate Reports</button>
-
+            <form>
+                  <input type="button" value="Genrate Reports" class="btn btn-dark"
+                         onclick="window.location.href='{% url 'Expenditure:report_result' 'systemwise' 'chasis' %}'" />
+              </form>
           </div>
     </div>
   </div>
@@ -66,8 +70,10 @@
 
           </div>
           <div class="col-md-6 text-center">
-            <button type="button" class="btn btn-dark">Genrate Reports</button>
-
+            <form>
+                  <input type="button" value="Genrate Reports" class="btn btn-dark"
+                         onclick="window.location.href='{% url 'Expenditure:report_result' 'systemwise' 'suspension' %}'" />
+              </form>
           </div>
     </div>
   </div>
@@ -82,8 +88,10 @@
 
           </div>
           <div class="col-md-6 text-center">
-            <button type="button" class="btn btn-dark">Genrate Reports</button>
-
+            <form>
+                  <input type="button" value="Genrate Reports" class="btn btn-dark"
+                         onclick="window.location.href='{% url 'Expenditure:report_result' 'systemwise' 'misc' %}'" />
+              </form>
           </div>
     </div>
   </div>
@@ -102,8 +110,10 @@
 
           </div>
           <div class="col-md-6 text-center">
-            <button type="button" class="btn btn-dark">Genrate Reports</button>
-
+            <form>
+                  <input type="button" value="Genrate Reports" class="btn btn-dark"
+                         onclick="window.location.href='{% url 'Expenditure:report_result' 'categorywise' 'catone' %}'" />
+              </form>
           </div>
     </div>
   </div>
@@ -118,8 +128,9 @@
 
           </div>
           <div class="col-md-6 text-center">
-            <button type="button" class="btn btn-dark">Genrate Reports</button>
-
+            <input type="button" value="Genrate Reports" class="btn btn-dark"
+                         onclick="window.location.href='{% url 'Expenditure:report_result' 'categorywise' 'cattwo' %}'" />
+              </form>
           </div>
     </div>
   </div>
@@ -134,8 +145,9 @@
 
           </div>
           <div class="col-md-6 text-center">
-            <button type="button" class="btn btn-dark">Genrate Reports</button>
-
+            <input type="button" value="Genrate Reports" class="btn btn-dark"
+                         onclick="window.location.href='{% url 'Expenditure:report_result' 'categorywise' 'catthree' %}'" />
+              </form>
           </div>
     </div>
   </div>
@@ -146,16 +158,19 @@
   <div class="card-body">
     <div class="row">
           <div class="col-md-6 text-center">
-                <h4>Cat4</h4>
+                <h4>Other</h4>
 
           </div>
           <div class="col-md-6 text-center">
-            <button type="button" class="btn btn-dark">Genrate Reports</button>
-
+            <input type="button" value="Genrate Reports" class="btn btn-dark"
+                         onclick="window.location.href='{% url 'Expenditure:report_result' 'categorywise' 'other' %}'" />
+              </form>
           </div>
     </div>
   </div>
 </div>
+    <div class="card mb-2">
+    </div>
 
 
 </div>
