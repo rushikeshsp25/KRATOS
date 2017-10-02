@@ -1,12 +1,11 @@
 from django.contrib.auth import authenticate, login
 from django.contrib.auth import logout
-from django.http import JsonResponse,HttpResponse
 from django.core import serializers
-from django.shortcuts import render,redirect, get_object_or_404
+from django.shortcuts import render,redirect
 from .forms import UserForm,CreditsForm,DebitsForm
 from .models import Credits,Debits,Balence
-from django.db.models import Q
-from datetime import datetime,date      #to get current date and time
+from datetime import date      #to get current date and time
+
 
 
 def index(request):
@@ -78,7 +77,7 @@ def login_user(request):
         if user is not None:
             if user.is_active:
                 login(request, user)
-                return render(request, 'Expenditure/Dashboard.html')
+                return redirect('Expenditure:index')            #redirect() accepts a view name as parameter
             else:
                 return render(request, 'Expenditure/login.html', {'error_message': 'Your account has been disabled'})
         else:
@@ -125,6 +124,7 @@ def credits(request):
             "form": form,
             "credits":credits_object,
             "balence":Balence.objects.get(id=1),
+            "balenceT": Balence.objects.get(id=2),
         }
         return render(request, 'Expenditure/credit_form.html', context)
     else:
@@ -206,3 +206,4 @@ def report_result(request,type,subtype):
         return render(request, 'Expenditure/report_result.html',context)
     else:
         return render(request, 'Expenditure/login.html')
+

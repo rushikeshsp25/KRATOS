@@ -56,7 +56,11 @@
         </a>
         <div class="dropdown-menu animated flip" aria-labelledby="navbarDropdownMenuLink">
      <div class="dropdown-item mx-auto">
-       <button type="button" class="btn btn-outline-secondary">Logout</button>
+         <form>
+             <input type="button" value="Logout" class="btn btn-outline-secondary"
+              onclick="window.location.href='{% url 'Expenditure:logout_user' %}'" />
+         </form>
+
      </div>
  </div>
       </li>
