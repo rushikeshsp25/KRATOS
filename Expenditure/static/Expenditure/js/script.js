@@ -8,7 +8,7 @@
       tot_bal= balence[1]["fields"].balence;
       }
 
-
+       var yest_bal=parseInt(cur_bal)+parseInt(todays_debits);
       //Balence Left gauge
       google.charts.load('current', {'packages':['gauge']});
       google.charts.setOnLoadCallback(drawChart_deb);
@@ -50,9 +50,9 @@
         ]);
 
         var options = {
-          min: 0,max: cur_bal,width: 300, height: 200,
-          redFrom: 4*cur_bal/5, redTo: cur_bal,
-          yellowFrom:3*cur_bal/5, yellowTo: 4*cur_bal/5,
+          min: 0,max:yest_bal,width: 300, height: 200,
+          redFrom: 4*yest_bal/5, redTo: yest_bal,
+          yellowFrom:3*yest_bal/5, yellowTo: 4*yest_bal/5,
           minorTicks: 5,
            animation:{
         duration: 4000,
@@ -129,8 +129,8 @@
       function drawChart_cpie() {
         var data = google.visualization.arrayToDataTable([
           ['System', 'Debits'],
-          ['Cat1 ',    parseInt(price_cat1) ],
-          ['Cat2',      parseInt(price_cat2)],
+          ['Cat1 ', parseInt(price_cat1) ],
+          ['Cat2',  parseInt(price_cat2)],
           ['Cat3',  parseInt(price_cat3)],
           ['Other', parseInt(price_other)]
         ]);
@@ -155,7 +155,7 @@
         var data = google.visualization.arrayToDataTable([
           ['Tax', 'Expenditure'],
           ['GST',     parseInt(price_gst)],
-          ['NON-GST',  parseInt(price_non_gst)]
+          ['NON-GST', parseInt(price_non_gst)]
         ]);
 
         var options = {
@@ -177,10 +177,4 @@ $(document).resize(function(){
   drawChart_tdnt();
 });
 
-
-
-
- 
- 
- 
 

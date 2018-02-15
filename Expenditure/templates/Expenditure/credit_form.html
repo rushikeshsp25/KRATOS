@@ -76,6 +76,7 @@
                         <th>Name of Payee</th>
                         <th>Amount</th>
                         <th>Date</th>
+                        <th>Options</th>
                     </tr>
                     </thead>
                     <tbody>
@@ -85,10 +86,27 @@
                         <td>{{credit.name_of_payee}}</td>
                         <td>{{credit.amount}}</td>
                         <td>{{credit.date_time}}</td>
+                        <td>
+                            <a href="{% url 'Expenditure:edit_credit' credit.id %}">
+                            <button type="button" class="btn btn-dark">
+                                <span class="glyphicon glyphicon-plus"></span>&nbsp; Edit
+                            </button>
+                            </a>
+
+                            <a href="{% url 'Expenditure:delete_credit' credit.id %}">
+                            <button type="button" class="btn btn-dark">
+                                <span class="glyphicon glyphicon-plus"></span>&nbsp; Delete
+                            </button>
+                            </a>
+
+
+                        </td>
                     </tr>
                     {% endfor %}
                     </tbody>
                 </table>
+
+                <button type="button" class="btn btn-dark center">Display All Credits</button>
             </div>
         </div>
     </div>

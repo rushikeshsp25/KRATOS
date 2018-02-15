@@ -140,6 +140,7 @@
                           </div>
 
                           <!-- Modal -->
+
                           <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                               <div class="modal-dialog" role="document">
                                   <div class="modal-content">
@@ -180,6 +181,7 @@
                         <th>Name of Product</th>
                         <th>Price</th>
                         <th>Date</th>
+                        <th>Options</th>
                     </tr>
                     </thead>
                     <tbody>
@@ -189,12 +191,30 @@
                         <td>{{debit.product_name}}</td>
                         <td>{{debit.price}}</td>
                         <td>{{debit.date_time}}</td>
+                        <td>
+                            <a href="{% url 'Expenditure:edit_debit' debit.id %}">
+                            <button type="button" class="btn btn-dark">
+                                <span class="glyphicon glyphicon-plus"></span>&nbsp; Edit
+                            </button>
+                            </a>
+
+                            <a href="{% url 'Expenditure:delete_debit' debit.id %}">
+                            <button type="button" class="btn btn-dark">
+                                <span class="glyphicon glyphicon-plus"></span>&nbsp; Delete
+                            </button>
+                            </a>
+                        </td>
                     </tr>
                     {% endfor %}
                     </tbody>
                 </table>
+                <button type="button" class="btn btn-dark center">Display All Debits</button>
             </div>
         </div>
+
+
+
+
     </div>
 </div>
 

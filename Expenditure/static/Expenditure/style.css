@@ -48,3 +48,9 @@ height:30px;
 #id_category{
 height:30px;
 }
+
+#id_logInWindow{
+display: flex;
+justify-content: center;
+}
+
