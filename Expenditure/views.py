@@ -43,6 +43,8 @@ def index(request):
 
         # for passing objects to js we need to serialize it
         json_data = serializers.serialize("json", Balence.objects.all())
+        debits_object = Debits.objects.order_by('-date_time')[:2]
+        credits_object = Credits.objects.order_by('-date_time')[:2]
 
         context = {
             "json": json_data,
@@ -54,6 +56,8 @@ def index(request):
             "price_cat2": price_cat2,
             "price_cat3": price_cat3,
             "price_other": price_other,
+            "credits":credits_object,
+            "debits":debits_object,
         }
         return render(request, 'Expenditure/Dashboard.html', context)
 
@@ -272,9 +276,14 @@ def edit_debit(request,id):
             if form.is_valid():
                 debit = form.save(commit=False)
                 debit.user = request.user
+                item = get_object_or_404(Debits, pk=id)
+                print item.price
                 debit.save()
                 bal = Balence.objects.get(id=1)
+                bal.balence = bal.balence + item.price
+                print bal.balence
                 bal.balence = bal.balence - debit.price
+                print bal.balence
                 bal.save()
                 return render(request, 'Expenditure/success.html')
             debits_object = Debits.objects.order_by('-date_time')[:10]
@@ -295,7 +304,7 @@ def delete_debit(request, oid):
         if request.user.has_perm('Expenditure.delete_Debits'):
             d_obj=Debits.objects.get(pk=int(oid))
             bal1 = Balence.objects.get(id=1)        #current bal
-            bal1.balence=bal1.balence+d_obj.amount
+            bal1.balence=bal1.balence+d_obj.price
             bal1.save()
             d_obj.delete()
             return redirect('Expenditure:debits')

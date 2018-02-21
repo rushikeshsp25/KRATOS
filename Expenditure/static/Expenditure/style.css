@@ -54,3 +54,30 @@ display: flex;
 justify-content: center;
 }
 
+#recent_cre{
+background-color: #43A047;
+text-align:center;
+color:#ffffff;
+}
+
+#recent_deb{
+background-color: #FF5722;
+text-align:center;
+color:#ffffff;
+}
+
+#header_syswise{
+background-color: #BBDEFB;
+}
+
+#header_catwise{
+background-color: #C5CAE9;
+}
+
+#header_taxwise{
+background-color: #E6EE9C;
+}
+
+#header_recent{
+background-color: #FFD54F;
+}

@@ -49,20 +49,34 @@
 
     </ul>
     <ul class="navbar-nav mr-5">
-    <li class="nav-item dropdown">
-        <a class="nav-link dropdown-toggle"  id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-          {{user.username}}
-        </a>
-        <div class="dropdown-menu animated flip" aria-labelledby="navbarDropdownMenuLink">
-     <div class="dropdown-item mx-auto">
-         <form>
-             <input type="button" value="Logout" class="btn btn-outline-secondary"
-              onclick="window.location.href='{% url 'Expenditure:logout_user' %}'" />
-         </form>
-
-     </div>
- </div>
-      </li>
+    <!--<li class="nav-item dropdown">-->
+        <!--<a class="nav-link dropdown-toggle"  id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">-->
+          <!--{{user.username}}-->
+        <!--</a>-->
+        <!--<div class="dropdown-menu animated flip" aria-labelledby="navbarDropdownMenuLink">-->
+     <!--<div class="dropdown-item">-->
+         <!--&lt;!&ndash;<form>-->
+             <!--<input type="button" value="Logout" class="btn btn-outline-secondary"-->
+              <!--onclick="window.location.href='{% url 'Expenditure:logout_user' %}'" />-->
+         <!--</form>&ndash;&gt;-->
+    <!--<h1>this </h1>-->
+     <!--</div>-->
+ <!--</div>-->
+      <!--</li>-->
+        <!-- Default dropright button -->
+<div class="btn-group ">
+  <button type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+    Hello {{user.username}}
+  </button>
+  <div class="dropdown-menu">
+    <!-- Dropdown menu links -->
+      <!--<form>-->
+             <!--<input type="button" value="Logout" class="btn btn-outline-secondary"-->
+              <!--onclick="window.location.href='{% url 'Expenditure:logout_user' %}'" />-->
+         <!--</form>-->
+      <a class="dropdown-item" href="{% url 'Expenditure:logout_user' %}">Logout</a>
+  </div>
+</div>
 
     </ul>
   </div>
