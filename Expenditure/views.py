@@ -2,9 +2,92 @@ from django.contrib.auth import authenticate, login,logout
 from django.core import serializers
 from django.shortcuts import render, redirect ,get_object_or_404
 from .forms import UserForm, CreditsForm, DebitsForm
-from .models import Credits, Debits, Balence
+from .models import Credits, Debits, Balence, User_info
 from datetime import date  # to get current date and time
-from django.contrib.auth.models import Group
+from django.contrib.auth.models import User,Group
+import csv
+import re
+from django.http import HttpResponse
+
+
+def login_user(request):
+    if request.method == "POST":
+        username = request.POST['username']
+        password = request.POST['password']
+        user = authenticate(username=username, password=password)
+        if user is not None:
+            if user.is_active:
+                login(request, user)
+                return redirect('Expenditure:index')  # redirect() accepts a view name as parameter
+            else:
+                return render(request, 'Expenditure/login.html', {'error_message': 'Your account has been disabled'})
+        else:
+            return render(request, 'Expenditure/login.html', {'error_message': 'Invalid login'})
+    return render(request, 'Expenditure/login.html')
+
+
+def logout_user(request):
+    logout(request)
+    form = UserForm(request.POST or None)
+    context = {
+        "form": form,
+    }
+    return render(request, 'Expenditure/login.html', context)
+
+
+
+def create_new_user(request):
+    if request.user.is_authenticated():
+        if request.user.has_perm('Expenditure.add_User'):
+            form = UserForm(request.POST or None)
+            if form.is_valid():
+                user = form.save(commit=False)
+                username = form.cleaned_data['username']
+                email = form.cleaned_data['email']
+                if email and User.objects.filter(email=email).count() > 0:
+                    context = {
+                        'error_message': 'This email address is already registered.',
+                        "form": form,
+                    }
+                    return render(request, 'Expenditure/create_new_user.html', context)
+                password = form.cleaned_data['password']
+                user.set_password(password)
+                user_info_object = User_info()
+                pattern = re.compile("^[789]\d{9}$")
+                user_info_object.phone_number = request.POST['phone_number']  # before saving user validate phone_number
+                if not pattern.match(str(user_info_object.phone_number)):
+                    context = {
+                        'error_message': 'Enter 10 Digit Mobile Number in Proper Format',
+                        "form": form,
+                    }
+                    return render(request, 'Expenditure/create_new_user.html', context)
+                user.save()
+                user_info_object.user = user
+                user_info_object.assets = 0
+                user_info_object.save()
+                g = Group.objects.get(name=str(form.cleaned_data['permissions']))
+                g.user_set.add(user)
+                return render(request, 'Expenditure/success.html')
+            context = {
+                "form": form,
+            }
+            return render(request, 'Expenditure/create_new_user.html', context)
+        else:
+            return render(request, 'Expenditure/permission_error.html')
+    else:
+        return render(request, 'Expenditure/login.html')
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 def index(request):
@@ -61,55 +144,6 @@ def index(request):
         }
         return render(request, 'Expenditure/Dashboard.html', context)
 
-
-def logout_user(request):
-    logout(request)
-    form = UserForm(request.POST or None)
-    context = {
-        "form": form,
-    }
-    return render(request, 'Expenditure/login.html', context)
-
-
-def login_user(request):
-    if request.method == "POST":
-        username = request.POST['username']
-        password = request.POST['password']
-        user = authenticate(username=username, password=password)
-        if user is not None:
-            if user.is_active:
-                login(request, user)
-                return redirect('Expenditure:index')  # redirect() accepts a view name as parameter
-            else:
-                return render(request, 'Expenditure/login.html', {'error_message': 'Your account has been disabled'})
-        else:
-            return render(request, 'Expenditure/login.html', {'error_message': 'Invalid login'})
-    return render(request, 'Expenditure/login.html')
-
-
-def create_new_user(request):
-    if request.user.is_authenticated():
-        if request.user.has_perm('Expenditure.add_User'):
-            form = UserForm(request.POST or None)
-            if form.is_valid():
-                user = form.save(commit=False)
-                username = form.cleaned_data['username']
-                password = form.cleaned_data['password']
-                user.set_password(password)
-                user.save()
-                g = Group.objects.get(name=str(form.cleaned_data['permissions']))
-                g.user_set.add(user)
-                return render(request, 'Expenditure/success.html')
-            context = {
-                "form": form,
-            }
-            return render(request, 'Expenditure/create_new_user.html', context)
-        else:
-            return render(request, 'Expenditure/permission_error.html')
-    else:
-        return render(request, 'Expenditure/login.html')
-
-
 def credits(request):
     if request.user.is_authenticated():
         form = CreditsForm(request.POST or None)
@@ -155,63 +189,6 @@ def debits(request):
             "debits": debits_object,
         }
         return render(request, 'Expenditure/debit_form.html', context)
-    else:
-        return render(request, 'Expenditure/login.html')
-
-
-def reports(request):
-    if request.user.is_authenticated():
-        return render(request, 'Expenditure/reports.html')
-    else:
-        return render(request, 'Expenditure/login.html')
-
-
-def report_result(request, type, subtype):
-    if request.user.is_authenticated():
-        report_type = ""
-        report_desc = ""
-        context = {}
-        d_objs = Debits()
-
-        if type == 'systemwise':
-            report_type = "System Wise Report"
-            if subtype == 'engine':
-                report_desc = "System - Engine"
-                d_objs = Debits.objects.filter(sys_engine=1).order_by('-date_time')
-            elif subtype == 'break':
-                report_desc = "System - Breaks"
-                d_objs = Debits.objects.filter(sys_break=1).order_by('-date_time')
-            elif subtype == 'chasis':
-                report_desc = "System - Chasis"
-                d_objs = Debits.objects.filter(sys_chasis=1).order_by('-date_time')
-            elif subtype == 'suspension':
-                report_desc = "System - Suspension"
-                d_objs = Debits.objects.filter(sys_suspension=1).order_by('-date_time')
-            elif subtype == 'misc':
-                report_desc = "System - Misc"
-                d_objs = Debits.objects.filter(sys_misc=1).order_by('-date_time')
-
-        elif type == "categorywise":
-            report_type = "Category Wise Report"
-            if subtype == 'catone':
-                report_desc = "Category - Cat1"
-                d_objs = Debits.objects.filter(category='Cat1').order_by('-date_time')
-            elif subtype == 'cattwo':
-                report_desc = "Category - Cat2"
-                d_objs = Debits.objects.filter(category='Cat2').order_by('-date_time')
-            elif subtype == 'catthree':
-                report_desc = "Category - Cat3"
-                d_objs = Debits.objects.filter(category='Cat3').order_by('-date_time')
-            elif subtype == 'other':
-                report_desc = "Category - Other"
-                d_objs = Debits.objects.filter(category='Other').order_by('-date_time')
-
-        context = {
-            "report_type": report_type,
-            "report_desc": report_desc,
-            "debits": d_objs,
-        }
-        return render(request, 'Expenditure/report_result.html', context)
     else:
         return render(request, 'Expenditure/login.html')
 
@@ -313,3 +290,88 @@ def delete_debit(request, oid):
 
     else:
         return render(request, 'Expenditure/login.html')
+
+def users(request):
+    if request.user.is_authenticated():
+        users_objects=User_info.objects.all()
+        context={
+            "users":users_objects,
+        }
+        return render(request, 'Expenditure/users.html',context)
+    else:
+        return render(request, 'Expenditure/login.html')
+
+def reports(request):
+    if request.user.is_authenticated():
+        return render(request, 'Expenditure/reports.html')
+    else:
+        return render(request, 'Expenditure/login.html')
+
+
+def report_result(request, type, subtype):
+    if request.user.is_authenticated():
+        report_type = ""
+        report_desc = ""
+        context = {}
+        d_objs = Debits()
+
+        if type == 'systemwise':
+            report_type = "System Wise Report"
+            if subtype == 'engine':
+                report_desc = "System - Engine"
+                d_objs = Debits.objects.filter(sys_engine=1).order_by('-date_time')
+            elif subtype == 'break':
+                report_desc = "System - Breaks"
+                d_objs = Debits.objects.filter(sys_break=1).order_by('-date_time')
+            elif subtype == 'chasis':
+                report_desc = "System - Chasis"
+                d_objs = Debits.objects.filter(sys_chasis=1).order_by('-date_time')
+            elif subtype == 'suspension':
+                report_desc = "System - Suspension"
+                d_objs = Debits.objects.filter(sys_suspension=1).order_by('-date_time')
+            elif subtype == 'misc':
+                report_desc = "System - Misc"
+                d_objs = Debits.objects.filter(sys_misc=1).order_by('-date_time')
+
+        elif type == "categorywise":
+            report_type = "Category Wise Report"
+            if subtype == 'catone':
+                report_desc = "Category - Cat1"
+                d_objs = Debits.objects.filter(category='Cat1').order_by('-date_time')
+            elif subtype == 'cattwo':
+                report_desc = "Category - Cat2"
+                d_objs = Debits.objects.filter(category='Cat2').order_by('-date_time')
+            elif subtype == 'catthree':
+                report_desc = "Category - Cat3"
+                d_objs = Debits.objects.filter(category='Cat3').order_by('-date_time')
+            elif subtype == 'other':
+                report_desc = "Category - Other"
+                d_objs = Debits.objects.filter(category='Other').order_by('-date_time')
+
+        context = {
+            "report_type": report_type,
+            "report_desc": report_desc,
+            "debits": d_objs,
+        }
+        return render(request, 'Expenditure/report_result.html', context)
+    else:
+        return render(request, 'Expenditure/login.html')
+
+
+
+def export_csv(request,type):
+    response = HttpResponse(content_type='text/csv')
+    response['Content-Disposition'] = 'attachment; filename="users.csv"'
+    head_row=[]
+    objects=[]
+    if(type=="credits"):
+        head_row = ['name_of_payee', 'amount', 'description', 'user', 'date_time']
+        objects = Credits.objects.all().values_list('name_of_payee', 'amount', 'description', 'user', 'date_time')
+    elif(type=="debits"):
+        head_row = ['product_name', 'quantity', 'unit', 'price', 'tax','remarks','category','user','date_time']
+        objects = Debits.objects.all().values_list('product_name', 'quantity', 'unit', 'price', 'tax','remarks','category','user','date_time')
+    writer = csv.writer(response)
+    writer.writerow(head_row)
+    for object in objects:
+        writer.writerow(object)
+    return response

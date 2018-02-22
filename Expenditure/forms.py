@@ -5,17 +5,14 @@ from .models import Credits,Debits
 class DebitsForm(forms.ModelForm):
     CHOICES = [(True, 'GST'),
                (False, 'NON GST')]
-
     tax = forms.ChoiceField(choices=CHOICES, widget=forms.RadioSelect())
-
     class Meta:
         model = Debits
         fields = ['product_name','quantity','unit','price','tax','sys_break','sys_suspension',
-                  'sys_chasis','sys_engine','sys_misc','category']
+                  'sys_chasis','sys_engine','sys_misc','remarks','category']
 
 
 class CreditsForm(forms.ModelForm):
-    description=forms.CharField(required=False)
     class Meta:
         model = Credits
         fields = ['name_of_payee','amount','description']
@@ -23,6 +20,7 @@ class CreditsForm(forms.ModelForm):
 
 class UserForm(forms.ModelForm):
     password = forms.CharField(widget=forms.PasswordInput)
+    phone_number=forms.CharField(max_length=16)
     group_choises = (
         ('view', 'view'),
         ( 'view_add','view + add'),
@@ -39,6 +37,6 @@ class UserForm(forms.ModelForm):
 
     class Meta:
         model = User
-        fields = ['username', 'email', 'password','permissions']
+        fields = ['username', 'email', 'phone_number','password','permissions']
 
 

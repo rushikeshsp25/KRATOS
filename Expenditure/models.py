@@ -23,7 +23,6 @@ class Debits(models.Model):
     unit=models.CharField(max_length=10,choices=QUANT_CHOICES,default='NA')  #NA -> Not Applied
     price=models.IntegerField(default=0)
     tax=models.BooleanField()       #1-GST 0-Not GST
-
     #systems Fields#############################
     sys_break=models.BooleanField()
     sys_suspension = models.BooleanField()
@@ -31,6 +30,7 @@ class Debits(models.Model):
     sys_engine = models.BooleanField()
     sys_misc = models.BooleanField()
     ############################################
+    remarks=models.TextField(blank=True)
     category=models.CharField(max_length=10,choices=CAT_CHOICES,default='Other')  #0-other 1-cat1 2-cat2 etc.
     user=models.ForeignKey(User, default=1)
     date_time=models.DateTimeField(default=datetime.now, blank=True)
@@ -39,7 +39,7 @@ class Debits(models.Model):
 class Credits(models.Model):
     name_of_payee=models.CharField(max_length=250)
     amount=models.IntegerField(default=0)
-    description=models.CharField(max_length=250)
+    description=models.TextField(blank=True)
     user = models.ForeignKey(User, default=1) #username who has added this entry
     date_time=models.DateTimeField(default=datetime.now, blank=True)        #system date and time
 
@@ -49,6 +49,11 @@ class Balence(models.Model):
     '''when amount is credited balence=balence+amount
        when amount is debited balence=balence-amount'''
 
-
+class User_info(models.Model):
+    user = models.ForeignKey(User, default=1)
+    phone_number = models.CharField(max_length=16)  # validators should be a list
+    assets=models.IntegerField()
+    def __str__(self):
+        return self.user.username
 
 

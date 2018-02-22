@@ -1,0 +1,29 @@
+{% extends 'Expenditure/base.html' %}
+{% block title %}Users{% endblock %}
+{% block body %}
+{% load staticfiles %}
+<div class="container">
+    <div class="mt-4">
+    <a href="{% url 'Expenditure:create_new_user' %}" >
+                <button type="button" class="btn btn-dark">Create New Users</button>
+    </a>
+        </div>
+    <div class="row">
+        {%for user in users%}
+        <div class="col-md-3">
+        <div class="card mt-4 ml-4" >
+          <div class="card-body">
+            <h5 class="card-title">{{user.user.username}}</h5>
+            <p class="card-text">
+              <hr>
+                <h6>Contact: {{user.phone_number}}</h6>
+              <hr>
+              <h6>Dues: {{user.assets}}</h6>
+            </p>
+          </div>
+        </div>
+            </div>
+        {%endfor%}
+    </div>
+</div>
+{% endblock %}

@@ -2,9 +2,9 @@
 from __future__ import unicode_literals
 
 from django.contrib import admin
-from .models import Credits,Debits,Balence
+from .models import Credits,Debits,Balence,User_info
 
 admin.site.register(Credits)
 admin.site.register(Debits)
 admin.site.register(Balence)
-
+admin.site.register(User_info)

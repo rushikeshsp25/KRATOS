@@ -54,13 +54,13 @@ display: flex;
 justify-content: center;
 }
 
-#recent_cre{
+#recent_deb{
 background-color: #43A047;
 text-align:center;
 color:#ffffff;
 }
 
-#recent_deb{
+#recent_cre{
 background-color: #FF5722;
 text-align:center;
 color:#ffffff;
@@ -81,3 +81,11 @@ background-color: #E6EE9C;
 #header_recent{
 background-color: #FFD54F;
 }
+ul
+{
+    list-style-type: none;
+}
+#required{
+color:Red;
+}
+
