@@ -1,5 +1,28 @@
 {% extends 'Expenditure/base.html' %}
 {% block title %}Debits{% endblock %}
+
+{% block javascript %}
+<script>
+    $("#id_product_name").on('keyup', function(){
+        var value = $(this).val();
+        $.ajax({
+            url: "{% url 'Expenditure:ajax_autocomplete' %}",
+            data: {
+              'search': value
+            },
+            dataType: 'json',
+            success: function (data) {
+                list = data.list;
+                $("#id_product_name").autocomplete({
+                source: list,
+                minLength: 1
+                });
+            }
+        });
+    });
+  </script>
+{% endblock %}
+
 {% block body %}
 {% load staticfiles %}
 <div class="container">
@@ -18,7 +41,9 @@
                             </span>
                             {% endif %}
                         </p>
+                            <div class="ui-widget">
                         {{form.product_name}}
+                            </div>
                         </div>
                     </div>
                     <div class="form-group col-md-6">
@@ -63,31 +88,7 @@
                         </div>
                         <div>
                             <label  class="col-form-label">System<span id="required"> * </span></label><br>
-                            <div class="form-check form-check-inline">
-                                <label class="form-check-label">
-                                    {{form.sys_break}} Breaks
-                                </label>
-                            </div>
-                            <div class="form-check form-check-inline">
-                                <label class="form-check-label">
-                                    {{form.sys_suspension}} Suspension
-                                </label>
-                            </div>
-                            <div class="form-check form-check-inline">
-                                <label class="form-check-label">
-                                    {{form.sys_chasis}} Chasis
-                                </label>
-                            </div>
-                            <div class="form-check form-check-inline">
-                                <label class="form-check-label">
-                                    {{form.sys_engine}} Engine
-                                </label>
-                            </div>
-                            <div class="form-check form-check-inline">
-                                <label class="form-check-label">
-                                    {{form.sys_misc}} Misc
-                                </label>
-                            </div>
+                            {{form.system}}
                         </div>
                         <div class="mt-2">
                             <label>Category:<span id="required"> * </span></label>
@@ -166,5 +167,7 @@
 </div>
 
 <!-- JavaScript: placed at the end of the document so the pages load faster -->
+<script type="text/javascript" src="{% static 'Expenditure/js/script.js' %}"></script>
+
 {% endblock %}
 

@@ -1,0 +1,46 @@
+{% extends 'Expenditure/base.html' %}
+{% block title %}Add New Event{% endblock %}
+{% block body %}
+{% load staticfiles %}
+<div class="container">
+    <div class="row">
+        <div class="col-md-12 mx-auto mt-4">
+            <div class="card">
+              <div class="card-header">
+                Manage Events
+              </div>
+              <div class="card-block">
+                <!--<h4 class="card-title"></h4>
+                <p class="card-text muted"></p> -->
+                    <div class="row">
+                    <div class="col-md-6 text-center">
+                        <h4 class="card-title">Add main event</h4>
+                        <div class="form-group row">
+                          <label for="maineveinput" class="col-2 col-form-label">Main Event</label>
+                          <div class="col-10">
+                            <input class="form-control" type="text" placeholder="Enter event here" id="maineveinput">
+                          </div>
+                        </div>
+                        <button type="submit" class="btn btn-success mx-auto">Submit</button>
+
+                    </div>
+                    <div class="col-md-6 text-center">
+                        <h4 class="card-title">Add sub event</h4>
+                        <div class="form-group row">
+                          <label for="subeveinput" class="col-2 col-form-label">Sub Event</label>
+                          <div class="col-10">
+                            <input class="form-control" type="text" placeholder="Enter event here" id="subeveinput">
+                          </div>
+                        </div>
+                          <button type="submit" class="btn btn-success">Submit</button>
+
+                    </div>
+                </div>
+
+              </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+{% endblock %}

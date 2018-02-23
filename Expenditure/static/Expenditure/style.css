@@ -53,29 +53,31 @@ height:30px;
 display: flex;
 justify-content: center;
 }
-
-#recent_deb{
-background-color: #43A047;
+.recent_hed{
 text-align:center;
-color:#ffffff;
+color:#212121;
 }
 
 #recent_cre{
-background-color: #FF5722;
+
 text-align:center;
-color:#ffffff;
+color:#212121;
 }
 
 #header_syswise{
 background-color: #BBDEFB;
 }
 
-#header_catwise{
-background-color: #C5CAE9;
+.usrcard{
+background-color: #E9ECEF;
+}
+.usrhed{
+    background-color: #EEEEEE;
 }
 
-#header_taxwise{
-background-color: #E6EE9C;
+.header_chart{
+background-color: #424242;
+    color:ghostwhite;
 }
 
 #header_recent{
@@ -88,4 +90,3 @@ ul
 #required{
 color:Red;
 }
-

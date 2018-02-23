@@ -11,12 +11,16 @@ QUANT_CHOICES = (
     ('Ng', 'Nugs'),
 )
 
-CAT_CHOICES = (
-    ('Other', 'Other'),
-    ('Cat1', 'Cat1'),
-    ('Cat2', 'Cat2'),
-    ('Cat3', 'Cat3'),
-)
+class Category(models.Model):
+    category_name=models.CharField(max_length=16,unique=True)
+    def __str__(self):
+        return self.category_name
+
+class System(models.Model):
+    system_name=models.CharField(max_length=16,unique=True)
+    def __str__(self):
+        return self.system_name
+
 class Debits(models.Model):
     product_name=models.CharField(max_length=250)
     quantity=models.IntegerField(default=0)
@@ -24,14 +28,10 @@ class Debits(models.Model):
     price=models.IntegerField(default=0)
     tax=models.BooleanField()       #1-GST 0-Not GST
     #systems Fields#############################
-    sys_break=models.BooleanField()
-    sys_suspension = models.BooleanField()
-    sys_chasis = models.BooleanField()
-    sys_engine = models.BooleanField()
-    sys_misc = models.BooleanField()
+    system=models.ForeignKey(System,default=1)
     ############################################
     remarks=models.TextField(blank=True)
-    category=models.CharField(max_length=10,choices=CAT_CHOICES,default='Other')  #0-other 1-cat1 2-cat2 etc.
+    category=models.ForeignKey(Category,default=1)
     user=models.ForeignKey(User, default=1)
     date_time=models.DateTimeField(default=datetime.now, blank=True)
 
@@ -55,5 +55,6 @@ class User_info(models.Model):
     assets=models.IntegerField()
     def __str__(self):
         return self.user.username
+
 
 

@@ -1,6 +1,6 @@
 from django import forms
 from django.contrib.auth.models import User
-from .models import Credits,Debits
+from .models import Credits,Debits,User_info
 
 class DebitsForm(forms.ModelForm):
     CHOICES = [(True, 'GST'),
@@ -8,8 +8,7 @@ class DebitsForm(forms.ModelForm):
     tax = forms.ChoiceField(choices=CHOICES, widget=forms.RadioSelect())
     class Meta:
         model = Debits
-        fields = ['product_name','quantity','unit','price','tax','sys_break','sys_suspension',
-                  'sys_chasis','sys_engine','sys_misc','remarks','category']
+        fields = ['product_name','quantity','unit','price','tax','system','remarks','category']
 
 
 class CreditsForm(forms.ModelForm):
@@ -40,3 +39,8 @@ class UserForm(forms.ModelForm):
         fields = ['username', 'email', 'phone_number','password','permissions']
 
 
+class UserMoneyForm(forms.Form):
+    user=forms.ModelChoiceField(queryset=User_info.objects.all())
+    amount=forms.IntegerField()
+    class Meta:
+        fields = ['user', 'amount']

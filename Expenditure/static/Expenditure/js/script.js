@@ -176,5 +176,3 @@ $(document).resize(function(){
   drawChart_cpie();
   drawChart_tdnt();
 });
-
-

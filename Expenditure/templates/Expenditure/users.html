@@ -11,17 +11,26 @@
     <div class="row">
         {%for user in users%}
         <div class="col-md-3">
-        <div class="card mt-4 ml-4" >
-          <div class="card-body">
-            <h5 class="card-title">{{user.user.username}}</h5>
-            <p class="card-text">
-              <hr>
-                <h6>Contact: {{user.phone_number}}</h6>
-              <hr>
-              <h6>Dues: {{user.assets}}</h6>
-            </p>
-          </div>
-        </div>
+            <div class="card mt-4 ml-4 usrcard">
+                <div class="card-header usrhed">
+			    {{request.session.main_event}}
+			  </div>
+			  <img class="card-img rounded-circle mx-auto mt-3" src="Expenditure/static/car1.jpg" style="height:100px;width:100px;">
+			  <div class="card-block mt-3">
+			    <h4 class="card-title text-center">{{user.user.username}}</h4>
+			    <p class="card-text muted text-center">
+                {{user.phone_number}}
+			    </p>
+                  <p class="card-text muted text-center mb-3">
+                      {% if user.assets >= 0 %}
+                        <h3 class="text-center"><span class="badge badge-success">{{user.assets}}</span></h3>
+                      {% else %}
+                  <h3 class="text-center"><span class="badge badge-danger">{{user.assets}}</span></h3>
+                      {% endif %}
+                   </p>
+			  </div>
+			</div>
+
             </div>
         {%endfor%}
     </div>

@@ -1,13 +1,15 @@
+from __future__ import print_function
 from django.contrib.auth import authenticate, login,logout
 from django.core import serializers
 from django.shortcuts import render, redirect ,get_object_or_404
-from .forms import UserForm, CreditsForm, DebitsForm
-from .models import Credits, Debits, Balence, User_info
+from .forms import UserForm, CreditsForm, DebitsForm,UserMoneyForm
+from .models import Credits, Debits, Balence, User_info,System,Category
 from datetime import date  # to get current date and time
 from django.contrib.auth.models import User,Group
 import csv
 import re
 from django.http import HttpResponse
+from django.http import JsonResponse
 
 
 def login_user(request):
@@ -254,13 +256,10 @@ def edit_debit(request,id):
                 debit = form.save(commit=False)
                 debit.user = request.user
                 item = get_object_or_404(Debits, pk=id)
-                print item.price
                 debit.save()
                 bal = Balence.objects.get(id=1)
                 bal.balence = bal.balence + item.price
-                print bal.balence
                 bal.balence = bal.balence - debit.price
-                print bal.balence
                 bal.save()
                 return render(request, 'Expenditure/success.html')
             debits_object = Debits.objects.order_by('-date_time')[:10]
@@ -303,7 +302,13 @@ def users(request):
 
 def reports(request):
     if request.user.is_authenticated():
-        return render(request, 'Expenditure/reports.html')
+        systems=System.objects.all()
+        categories=Category.objects.all()
+        context={
+            "systems":systems,
+            "categories":categories,
+        }
+        return render(request, 'Expenditure/reports.html',context)
     else:
         return render(request, 'Expenditure/login.html')
 
@@ -312,42 +317,18 @@ def report_result(request, type, subtype):
     if request.user.is_authenticated():
         report_type = ""
         report_desc = ""
-        context = {}
         d_objs = Debits()
 
         if type == 'systemwise':
             report_type = "System Wise Report"
-            if subtype == 'engine':
-                report_desc = "System - Engine"
-                d_objs = Debits.objects.filter(sys_engine=1).order_by('-date_time')
-            elif subtype == 'break':
-                report_desc = "System - Breaks"
-                d_objs = Debits.objects.filter(sys_break=1).order_by('-date_time')
-            elif subtype == 'chasis':
-                report_desc = "System - Chasis"
-                d_objs = Debits.objects.filter(sys_chasis=1).order_by('-date_time')
-            elif subtype == 'suspension':
-                report_desc = "System - Suspension"
-                d_objs = Debits.objects.filter(sys_suspension=1).order_by('-date_time')
-            elif subtype == 'misc':
-                report_desc = "System - Misc"
-                d_objs = Debits.objects.filter(sys_misc=1).order_by('-date_time')
+            report_desc = "System - "+subtype
+            d_objs = Debits.objects.filter(system__system_name=subtype).order_by('-date_time')
+
 
         elif type == "categorywise":
             report_type = "Category Wise Report"
-            if subtype == 'catone':
-                report_desc = "Category - Cat1"
-                d_objs = Debits.objects.filter(category='Cat1').order_by('-date_time')
-            elif subtype == 'cattwo':
-                report_desc = "Category - Cat2"
-                d_objs = Debits.objects.filter(category='Cat2').order_by('-date_time')
-            elif subtype == 'catthree':
-                report_desc = "Category - Cat3"
-                d_objs = Debits.objects.filter(category='Cat3').order_by('-date_time')
-            elif subtype == 'other':
-                report_desc = "Category - Other"
-                d_objs = Debits.objects.filter(category='Other').order_by('-date_time')
-
+            report_desc = "Category -"+subtype
+            d_objs = Debits.objects.filter(category__category_name=subtype).order_by('-date_time')
         context = {
             "report_type": report_type,
             "report_desc": report_desc,
@@ -375,3 +356,59 @@ def export_csv(request,type):
     for object in objects:
         writer.writerow(object)
     return response
+
+def issue_money_to_user(request):
+    if request.user.is_authenticated():
+        form = UserMoneyForm(request.POST or None)
+        if form.is_valid():
+            username = form.cleaned_data['user']
+            assets=form.cleaned_data['amount']
+            user = get_object_or_404(User_info,user=User.objects.filter(username=username))
+            user.assets=user.assets-assets
+            user.save()
+            return render(request, 'Expenditure/success.html')
+        context = {
+            "form": form,
+        }
+        return render(request, 'Expenditure/issue_money_to_user.html', context)
+
+    else:
+        return render(request, 'Expenditure/login.html')
+
+def receive_money_from_user(request):
+    if request.user.is_authenticated():
+        form = UserMoneyForm(request.POST or None)
+        if form.is_valid():
+            username = form.cleaned_data['user']
+            assets=form.cleaned_data['amount']
+            user = get_object_or_404(User_info,user=User.objects.filter(username=username))
+            user.assets=user.assets+assets
+            user.save()
+            return render(request, 'Expenditure/success.html')
+        context = {
+            "form": form,
+        }
+        return render(request, 'Expenditure/receive_money_from_user.html', context)
+
+    else:
+        return render(request, 'Expenditure/login.html')
+
+
+def add_event(request):
+    if request.user.is_authenticated():
+        return render(request,'Expenditure/add_event_form.html')
+    else:
+        return render(request, 'Expenditure/login.html')
+
+
+def autocomplete(request):
+    if request.is_ajax():
+        queryset = Debits.objects.filter(product_name__startswith=request.GET.get('search', None))
+        list = []
+        for i in queryset:
+            list.append(i.product_name)
+        print(list)
+        data = {
+            'list': list,
+        }
+        return JsonResponse(data)

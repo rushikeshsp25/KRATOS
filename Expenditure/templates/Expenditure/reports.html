@@ -8,154 +8,46 @@
             <h2 class="mt-4">SystemWise Reports</h2>
             <hr>
             <!-- card1 -->
+            {% for system in systems %}
             <div class="card mt-2">
                 <div class="card-body">
                     <div class="row">
                         <div class="col-md-6 text-center">
-                            <h4>Engine</h4>
+                            <h4>{{system}}</h4>
                         </div>
                         <div class="col-md-6 text-center">
                             <form>
                                 <input type="button" value="Genrate Reports" class="btn btn-dark"
-                                       onclick="window.location.href='{% url 'Expenditure:report_result' 'systemwise' 'engine' %}'" />
+                                       onclick="window.location.href='{% url 'Expenditure:report_result' 'systemwise' system.system_name %}'" />
                             </form>
                         </div>
                     </div>
                 </div>
             </div>
-            <!-- card2 -->
-            <div class="card mt-2">
-                <div class="card-body">
-                    <div class="row">
-                        <div class="col-md-6 text-center">
-                            <h4>Breaks</h4>
-                        </div>
-                        <div class="col-md-6 text-center">
-                            <form>
-                                <input type="button" value="Genrate Reports" class="btn btn-dark"
-                                       onclick="window.location.href='{% url 'Expenditure:report_result' 'systemwise' 'break' %}'" />
-                            </form>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <!-- card3 -->
-            <div class="card mt-2">
-                <div class="card-body">
-                    <div class="row">
-                        <div class="col-md-6 text-center">
-                            <h4>Chasis</h4>
-                        </div>
-                        <div class="col-md-6 text-center">
-                            <form>
-                                <input type="button" value="Genrate Reports" class="btn btn-dark"
-                                 onclick="window.location.href='{% url 'Expenditure:report_result' 'systemwise' 'chasis' %}'" />
-                            </form>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <!-- card4 -->
-            <div class="card mt-2">
-                <div class="card-body">
-                    <div class="row">
-                        <div class="col-md-6 text-center">
-                            <h4>Suspension</h4>
-                        </div>
-                        <div class="col-md-6 text-center">
-                            <form>
-                                <input type="button" value="Genrate Reports" class="btn btn-dark"
-                                 onclick="window.location.href='{% url 'Expenditure:report_result' 'systemwise' 'suspension' %}'" />
-                            </form>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <!-- card5 -->
-            <div class="card mt-2">
-                <div class="card-body">
-                    <div class="row">
-                        <div class="col-md-6 text-center">
-                            <h4>Misc</h4>
-                        </div>
-                        <div class="col-md-6 text-center">
-                            <form>
-                                <input type="button" value="Genrate Reports" class="btn btn-dark"
-                                 onclick="window.location.href='{% url 'Expenditure:report_result' 'systemwise' 'misc' %}'" />
-                            </form>
-                        </div>
-                    </div>
-                </div>
-            </div>
+            {% endfor %}
         </div>
         <!--end of systemwise-->
         <div class="col-md-6">
             <h2 class="mt-4">CategoryWise Reports</h2>
             <hr>
+            {% for category in categories %}
             <!-- card1 -->
             <div class="card mt-2">
                 <div class="card-body">
                     <div class="row">
                         <div class="col-md-6 text-center">
-                            <h4>Cat1</h4>
+                            <h4>{{category}}</h4>
                         </div>
                         <div class="col-md-6 text-center">
                             <form>
                                 <input type="button" value="Genrate Reports" class="btn btn-dark"
-                                 onclick="window.location.href='{% url 'Expenditure:report_result' 'categorywise' 'catone' %}'" />
+                                 onclick="window.location.href='{% url 'Expenditure:report_result' 'categorywise' category.category_name %}'" />
                             </form>
                         </div>
                     </div>
                 </div>
             </div>
-            <!-- card2 -->
-            <div class="card mt-2">
-                <div class="card-body">
-                    <div class="row">
-                        <div class="col-md-6 text-center">
-                            <h4>Cat2</h4>
-                        </div>
-                        <div class="col-md-6 text-center">
-                            <form>
-                                <input type="button" value="Genrate Reports" class="btn btn-dark"
-                                 onclick="window.location.href='{% url 'Expenditure:report_result' 'categorywise' 'cattwo' %}'" />
-                            </form>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <!-- card3 -->
-            <div class="card mt-2">
-                <div class="card-body">
-                    <div class="row">
-                        <div class="col-md-6 text-center">
-                            <h4>Cat3</h4>
-                        </div>
-                        <div class="col-md-6 text-center">
-                            <form>
-                                <input type="button" value="Genrate Reports" class="btn btn-dark"
-                                 onclick="window.location.href='{% url 'Expenditure:report_result' 'categorywise' 'catthree' %}'" />
-                            </form>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <!-- card4 -->
-            <div class="card mt-2">
-                <div class="card-body">
-                    <div class="row">
-                        <div class="col-md-6 text-center">
-                            <h4>Other</h4>
-                        </div>
-                        <div class="col-md-6 text-center">
-                            <form>
-                                <input type="button" value="Genrate Reports" class="btn btn-dark"
-                                 onclick="window.location.href='{% url 'Expenditure:report_result' 'categorywise' 'other' %}'" />
-                            </form>
-                        </div>
-                    </div>
-                </div>
-            </div>
+            {% endfor %}
         </div>
     </div>
 </div>
