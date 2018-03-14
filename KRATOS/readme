@@ -1,44 +1,10 @@
-Project Name :              KRATOS
+Important to run system in proper state when run first time
+1] craete group permissions objects
+    a] view
+    b] view_add
+    c] view_add_edit
+    d] view_add_edit_delete
+    e] superuser
+    login using admin go to group and create above groups
 
------------------------------------------------------------------------------------------------
-Apps:                       1]Expenditure
-
------------------------------------------------------------------------------------------------
-Directories:
-                            1]Expenditure/static        ->holds css and js
-                            2]Expenditure/templates     ->holds html
-
-
-
------------------------------------------------------------------------------------------------
-Files:
-
-                            Expenditure/urls    :-all urls related to expenditure app
-
-----------------------------------------------------------------------------------------------
-DataBase:
-                            Table Name :
-                            1] Debits:
-                                column name:-
-                                                1]product_name
-                                                2]quantity
-                                                3]unit
-                                                4]price_per_unit
-                                                5]total_price
-                                                6]event
-                                                7]user ->user who has added this credit
-                                                8]date_time
-
-
-                            2]  Credits:
-                                column name:-
-                                                1]name_of_payee
-                                                2]amount
-                                                3]description
-                                                4]user ->user who has added this credit
-                                                5]date_time
-
-
-Things remaining:
-    1] Delete existing credit/Debit
-    2] Export as PDF and Excel
+2] to add debit atleast 1 user,1 system and 1 category needs to be crated

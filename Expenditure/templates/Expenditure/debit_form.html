@@ -86,16 +86,30 @@
                             </p>
                             {{form.tax}}
                         </div>
-                        <div>
-                            <label  class="col-form-label">System<span id="required"> * </span></label><br>
-                            {{form.system}}
-                        </div>
-                        <div class="mt-2">
-                            <label>Category:<span id="required"> * </span></label>
-                            <div class="dropdown">
+                        <div class="row">
+                            <div class="col-md-6">
+                                    <label class="col-form-label">System:<span id="required"> * </span></label></br>
+                                    {{form.system}}
+                            </div>
+                             <div class="col-md-6">
+                                    <label  class="col-form-label">User:</label><br>
+                                    {{form.users}}
+                             </div>
+                            </div>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <label class="col-form-label">Category:<span id="required"> * </span></label></br>
                                 {{form.category}}
                             </div>
+                            <div class="col-md-6">
+                                <label class="col-form-label">Subevent:<span id="required"> * </span></label></br>
+                                {{form.subevents}}
+                            </div>
+
                         </div>
+
+
+
 
                     </div>
                     <div class="form-group col-md-6">
@@ -114,7 +128,7 @@
                 <div class="form-group col-lg-12">
                 </div>
                 </div>-->
-                <button type="submit" class="btn btn-success " >Submit</button>
+                <button type="submit" class="btn btn-success " onclick="this.disabled=true,this.form.submit();">Submit</button>
             </form>
         </div>
     </div>
@@ -144,23 +158,29 @@
                 <td>{{debit.price}}</td>
                 <td>{{debit.date_time}}</td>
                 <td>
+                    {% if perms.Expenditure.change_Debits %}
                     <a href="{% url 'Expenditure:edit_debit' debit.id %}">
                         <button type="button" class="btn btn-dark">
                             <span class="glyphicon glyphicon-plus"></span>&nbsp; Edit
                         </button>
                     </a>
+                    {%endif%}
+                    {% if perms.Expenditure.delete_Debits %}
                     <a href="{% url 'Expenditure:delete_debit' debit.id %}">
                         <button type="button" class="btn btn-dark">
                             <span class="glyphicon glyphicon-plus"></span>&nbsp; Delete
                         </button>
                     </a>
+                    {%endif%}
                 </td>
             </tr>
             {% endfor %}
             </tbody>
         </table>
     </p>
+             <a href="{% url 'Expenditure:report_result' 'debits' 'all' %}">
             <button type="button" class="btn btn-dark center">Display All Debits</button>
+             </a>
         </div>
     </div>
     <br>

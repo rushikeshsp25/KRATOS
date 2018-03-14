@@ -17,7 +17,7 @@
                         {% csrf_token %}
                         {% include 'Expenditure/form_template.html' %}
                         <div class="col-sm-offset-2 col-sm-10">
-                            <button type="submit" class="btn btn-success">Add</button>
+                            <button type="submit" class="btn btn-success" onclick="this.disabled=true,this.form.submit();">Add</button>
                         </div>
                     </form>
 				</div>
@@ -26,10 +26,10 @@
         </div>
         <div class="col-sm-4">
             <div class="card text-white bg-dark">
-                <div class="card-header">Total Balence-{{ balenceT.balence }}</div>
+                <div class="card-header">Total Balence-{{ balence.total_balence }}</div>
                 <div class="card-body">
                     <h4 class="card-title">Balance left-</h4>
-                    <p class="card-text">{{ balence.balence }}/-</p>
+                    <p class="card-text">{{ balence.current_balence }}/-</p>
                 </div>
             </div>
         </div>
@@ -59,23 +59,29 @@
                         <td>{{credit.amount}}</td>
                         <td>{{credit.date_time}}</td>
                         <td>
+                            {% if perms.Expenditure.change_Credit%}
                             <a href="{% url 'Expenditure:edit_credit' credit.id %}">
                             <button type="button" class="btn btn-dark">
                                 <span class="glyphicon glyphicon-plus"></span>&nbsp; Edit
                             </button>
                             </a>
+                            {%endif%}
+                            {% if perms.Expenditure.delete_Credit%}
                             <a href="{% url 'Expenditure:delete_credit' credit.id %}">
                             <button type="button" class="btn btn-dark">
                                 <span class="glyphicon glyphicon-plus"></span>&nbsp; Delete
                             </button>
                             </a>
+                            {%endif%}
                         </td>
                     </tr>
                     {% endfor %}
                     </tbody>
                 </table>
         </p>
+          <a href="{% url 'Expenditure:report_result' 'credits' 'all' %}">
         <button type="button" class="btn btn-dark center">Display All Credits</button>
+              </a>
       </div>
     </div>
     <br>

@@ -18,7 +18,7 @@
           <div class="card">
 				<div class="card-header p-b-0">
 					<h5 class="card-title">
-						Register
+						Create New User
 					</h5>
 				</div>
 				<div class="card-block">
@@ -34,7 +34,7 @@
                             {% include 'Expenditure/form_template.html' %}
                         <div class="form-group">
                             <div class="col-sm-offset-2 col-sm-10">
-                                <button type="submit" class="btn btn-success">Submit</button>
+                                <button type="submit" class="btn btn-success" onclick="this.disabled=true,this.form.submit();">Submit</button>
                             </div>
                       </div>
 
@@ -48,23 +48,24 @@
             <div class="panel panel-default">
                 <div class="panel-body">
                     <h3>IMPORTANT</h3>
-                    <ul>
+                    <ol>
                         <li>You Being Admin have authority to add New user.</li>
-                        <li>Once new user is added he/she can view+edit+delete all information.</li>
-                        <li>Add new user on your risk.</li>
-                    </ul>
+                        <li>Enter Valid Information.</li>
+                        <li>Username and Password will be send to entered Email-id.</li>
+                        <li><strong>User's freedom can be controlled by adding proper permissions.</strong></li>
+                    </ol>
                     <h3>How do I add New User?</h3>
                     <ol>
                         <li>Choose the Username according to your preference(no Restriction).</li>
-                        <li>Enter Valid email id of user that you are adding.</li>
-                        <li>Select Secure Password(no Restrictiion)</li>
+                        <li>Enter Valid email id and PhoneNumber.</li>
+                        <li>Select Permissions carefully.</li>
+                        <ul style="list-style-type: circle">
+                            <li>User having permission view can only view entries.</li>
+                            <li>User having permission view + add can view entries as well as make new entries.</li>
+                            <li>User having permission view + add + delete can view entries as well as make new entries and also delete exixting entries.</li>
+                            <li><strong>Superuser can do anything (he can even remove you from users list) so it is very HIGH PRIVILEGED PERMISSION.</strong></li>
+                        </ul>
                     </ol>
-                    <h3>Some Password best practices</h3>
-                    <ul>
-                        <li>Use two numbers in the first eight characters.</li>
-                        <li>Pick long passwords, at least 8 characters in length.</li>
-                        <li>Don't use a common dictionary word, a name, a string of numbers, or your User ID.</li>
-                    </ul>
                 </div>
             </div>
         </div>

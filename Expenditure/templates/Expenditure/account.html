@@ -1,0 +1,218 @@
+{% extends 'Expenditure/base.html' %}
+{% block title %}Add New Event{% endblock %}
+{% block body %}
+{% load staticfiles %}
+<div class="container">
+            <div class="card mt-2" >
+              <div class="card-header">
+                  <h3>My Account</h3>
+              </div>
+              <div class="card-block">
+                <!--<h4 class="card-title"></h4>
+                <p class="card-text muted"></p> -->
+                  <div class="row">
+                      <div class="col-md-6">
+                          <ul class="list-group p-2">
+                              <li class="list-group-item"><strong style="color:blue">Username:- </strong> {{user.username}}</li>
+                              <li class="list-group-item"><strong style="color:blue">First Name:- </strong>{{user.first_name}}</li>
+                              <li class="list-group-item"><strong style="color:blue">Last Name:- </strong>{{user.last_name}}</li>
+                          </ul>
+                      </div>
+                      <div class="col-md-6">
+                          <ul class="list-group p-2">
+                              <li class="list-group-item"><strong style="color:blue">Phone Number:- </strong>{{user_obj.phone_number}}</li>
+                              <li class="list-group-item"><strong style="color:blue">Email id:- </strong>{{user.email}}</li>
+                              <li class="list-group-item list-group-item-warning"><strong style="color:Red">Assets:- </strong>{{user_obj.assets}}</li>
+                          </ul>
+                      </div>
+                  </div>
+              </div>
+            </div>
+            <div class="mt-2" id="noEventnoSubeventError">
+                {%if error%}
+                <h5>{{error|linebreaks}}</h5>
+                {%endif%}
+            </div>
+            <div class="card mt-2">
+              <div class="card-header">
+                  <h3>Options</h3>
+              </div>
+              <div class="card-block">
+                <!--<h4 class="card-title"></h4>
+                <p class="card-text muted"></p> -->
+                    <div class="row">
+                        {% if perms.Expenditure.add_Event%}
+                    <div class="col-md-6 text-center p-5">
+                        <div class="card" >
+                            <div class="card-body">
+                                <h5 class="card-title">Add Main Event</h5>
+                                <form class="form-horizontal" role="form" action="{% url 'Expenditure:add_event' %}" method="post" enctype="multipart/form-data">
+                                    {% csrf_token %}
+                                    {% for field in eventForm %}
+                                        <div class="form-group">
+                                            <div class="col-sm-offset-2 col-sm-12">
+                                                {% if field.errors  %}
+                                                <div class="alert alert-danger">
+                                                    <p><strong>{{ field.errors }}</strong></p>
+                                                </div>
+                                                {%endif%}
+                                            </div>
+                                            <div class="row">
+                                            <label class="control-label col-sm-5">{{ field.label_tag }}{% if field.field.required %}<span id="required"> * </span>{% endif %}</label>
+                                            <div class="col-sm-7">{{ field }}</div>
+                                            </div>
+                                        </div>
+                                    {% endfor %}
+                                    <div class="col-sm-offset-2 col-sm-10">
+                                        <button type="submit" class="btn btn-success" onclick="this.disabled=true,this.form.submit();">Add Event</button>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                        {%endif%}
+                        {% if perms.Expenditure.add_SubEvent%}
+                    <div class="col-md-6 text-center  p-5">
+                        <div class="card" >
+                            <div class="card-body">
+                                <h5 class="card-title">Add Sub Event</h5>
+                                <form class="form-horizontal" role="form" action="{% url 'Expenditure:add_subevent' %}" method="post" enctype="multipart/form-data">
+                                    {% csrf_token %}
+                                    {% for field in subeventForm %}
+                                        <div class="form-group">
+                                            <div class="col-sm-offset-2 col-sm-12">
+                                                {% if field.errors  %}
+                                                <div class="alert alert-danger">
+                                                    <p><strong>{{ field.errors }}</strong></p>
+                                                </div>
+                                                {%endif%}
+                                            </div>
+                                            <div class="row">
+                                            <label class="control-label col-sm-5">{{ field.label_tag }}{% if field.field.required %}<span id="required"> * </span>{% endif %}</label>
+                                            <div class="col-sm-7">{{ field }}</div>
+                                            </div>
+                                        </div>
+                                    {% endfor %}
+                                    <div class="col-sm-offset-2 col-sm-10">
+                                        <button type="submit" class="btn btn-success" onclick="this.disabled=true,this.form.submit();">Add Subevent</button>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                        {%endif%}
+                </div>
+
+                  <div class="row">
+                      {% if perms.Expenditure.add_System%}
+                    <div class="col-md-6 text-center  p-5">
+                        <div class="card" >
+                            <div class="card-body">
+                                <h5 class="card-title">Add New System</h5>
+                                <form class="form-horizontal" role="form" action="{% url 'Expenditure:add_system' %}" method="post" enctype="multipart/form-data">
+                                    {% csrf_token %}
+                                    {% for field in systemForm %}
+                                        <div class="form-group">
+                                            <div class="col-sm-offset-2 col-sm-12">
+                                                {% if field.errors  %}
+                                                <div class="alert alert-danger">
+                                                    <p><strong>{{ field.errors }}</strong></p>
+                                                </div>
+                                                {%endif%}
+                                            </div>
+                                            <div class="row">
+                                            <label class="control-label col-sm-5">{{ field.label_tag }}{% if field.field.required %}<span id="required"> * </span>{% endif %}</label>
+                                            <div class="col-sm-7">{{ field }}</div>
+                                            </div>
+                                        </div>
+                                    {% endfor %}
+                                    <div class="col-sm-offset-2 col-sm-10">
+                                        <button type="submit" class="btn btn-success" onclick="this.disabled=true,this.form.submit();">Add System</button>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                      {%endif%}
+                      {% if perms.Expenditure.add_Category%}
+                    <div class="col-md-6 text-center  p-5">
+                        <div class="card" >
+                            <div class="card-body">
+                                <h5 class="card-title">Add New Category</h5>
+                                 <form class="form-horizontal" role="form" action="{% url 'Expenditure:add_category' %}" method="post" enctype="multipart/form-data">
+                                    {% csrf_token %}
+                                    {% for field in categoryForm %}
+                                        <div class="form-group">
+                                            <div class="col-sm-offset-2 col-sm-12">
+                                                {% if field.errors  %}
+                                                <div class="alert alert-danger">
+                                                    <p><strong>{{ field.errors }}</strong></p>
+                                                </div>
+                                                {%endif%}
+                                            </div>
+                                            <div class="row">
+                                            <label class="control-label col-sm-5">{{ field.label_tag }}{% if field.field.required %}<span id="required"> * </span>{% endif %}</label>
+                                            <div class="col-sm-7">{{ field }}</div>
+                                            </div>
+                                        </div>
+                                    {% endfor %}
+                                    <div class="col-sm-offset-2 col-sm-10">
+                                        <button type="submit" class="btn btn-success" onclick="this.disabled=true,this.form.submit();">Add Category</button>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                      {%endif%}
+                </div>
+                   <div class="row">
+                       {% if perms.Expenditure.add_User%}
+                    <div class="col-md-6 text-center  p-5">
+                        <div class="card" >
+                            <div class="card-body">
+                                <h5 class="card-title">Create New User</h5>
+                                 <h6>Click here to create New User</h6>
+                                <a href="{% url 'Expenditure:create_new_user' %}">
+                                <button type="submit" class="btn btn-success mx-auto">Create</button>
+                                    </a>
+                            </div>
+                        </div>
+                    </div>
+                       {%endif%}
+                       {% if perms.Expenditure.add_User%}
+                    <div class="col-md-6 text-center  p-5">
+                        <div class="card" >
+                            <div class="card-body">
+                                <h5 class="card-title">Change Ongoing Event</h5>
+                                 <form class="form-horizontal" role="form" action="{% url 'Expenditure:change_ongoing_event' %}" method="post" enctype="multipart/form-data">
+                                    {% csrf_token %}
+                                    {% for field in changeongoingeventForm %}
+                                        <div class="form-group">
+                                            <div class="col-sm-offset-2 col-sm-12">
+                                                {% if field.errors  %}
+                                                <div class="alert alert-danger">
+                                                    <p><strong>{{ field.errors }}</strong></p>
+                                                </div>
+                                                {%endif%}
+                                            </div>
+                                            <div class="row">
+                                            <label class="control-label col-sm-5">{{ field.label_tag }}{% if field.field.required %}<span id="required"> * </span>{% endif %}</label>
+                                            <div class="col-sm-7">{{ field }}</div>
+                                            </div>
+                                        </div>
+                                    {% endfor %}
+                                    <div class="col-sm-offset-2 col-sm-10">
+                                        <button type="submit" class="btn btn-success" onclick="this.disabled=true,this.form.submit();">Change</button>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                       {%endif%}
+                </div>
+              </div>
+            </div>
+            </div>
+</br>
+</div>
+{% endblock %}

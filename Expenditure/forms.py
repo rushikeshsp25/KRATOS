@@ -1,14 +1,16 @@
 from django import forms
 from django.contrib.auth.models import User
-from .models import Credits,Debits,User_info
+from .models import Credits,Debits,User_info,Event,SubEvent,System,Category
 
 class DebitsForm(forms.ModelForm):
     CHOICES = [(True, 'GST'),
                (False, 'NON GST')]
     tax = forms.ChoiceField(choices=CHOICES, widget=forms.RadioSelect())
+    users = forms.ModelChoiceField(queryset=User_info.objects.all(),required=False)
+    subevents=forms.ModelChoiceField(queryset=SubEvent.objects.all())
     class Meta:
         model = Debits
-        fields = ['product_name','quantity','unit','price','tax','system','remarks','category']
+        fields = ['product_name','quantity','unit','price','tax','system','remarks','category','users','subevents']
 
 
 class CreditsForm(forms.ModelForm):
@@ -18,7 +20,6 @@ class CreditsForm(forms.ModelForm):
 
 
 class UserForm(forms.ModelForm):
-    password = forms.CharField(widget=forms.PasswordInput)
     phone_number=forms.CharField(max_length=16)
     group_choises = (
         ('view', 'view'),
@@ -36,7 +37,7 @@ class UserForm(forms.ModelForm):
 
     class Meta:
         model = User
-        fields = ['username', 'email', 'phone_number','password','permissions']
+        fields = ['username', 'email', 'phone_number','permissions']
 
 
 class UserMoneyForm(forms.Form):
@@ -44,3 +45,29 @@ class UserMoneyForm(forms.Form):
     amount=forms.IntegerField()
     class Meta:
         fields = ['user', 'amount']
+
+class EventForm(forms.ModelForm):
+    class Meta:
+        model= Event
+        fields=['event_name']
+
+class SubeventForm(forms.ModelForm):
+    class Meta:
+        model= SubEvent
+        fields=['subevent_name']
+
+class SystemForm(forms.ModelForm):
+    class Meta:
+        model= System
+        fields=['system_name']
+
+class CategoryForm(forms.ModelForm):
+    class Meta:
+        model= Category
+        fields=['category_name']
+
+class ChangeOngoingEventForm(forms.ModelForm):
+    events = forms.ModelChoiceField(queryset=Event.objects.all())
+    class Meta:
+        model= Event
+        fields=['events']

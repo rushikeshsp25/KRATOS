@@ -1,0 +1,51 @@
+{% extends 'Expenditure/base.html' %}
+{% block title %}New Event is Created{% endblock %}
+
+{% block body %}
+{% load staticfiles %}
+<div class="conatiner-fulid">
+
+<div id="new_event_created" class="jumbotron">
+  <h1 class="display-4">New Event is Created Succesfully !!</h1>
+    <hr class="my-4">
+    <h2 class="text-center">{{event.event_name}}</h2>
+    <hr class="my-4">
+  <p class="lead">We are setting Ongoing Event to {{event.event_name}}.</p>
+  <hr class="my-4">
+  <p>This is very important setting. Your all transactions here after will be saved under this event.</p>
+    <p>If you want to set different event as Ongoing event then click button BELOW.</p>
+    <form class="form-horizontal" role="form" action="{% url 'Expenditure:change_ongoing_event' %}" method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        <div class="row">
+            <div class="col-md-3">
+        {% for field in changeongoingeventForm %}
+        <div class="form-group">
+            <div class="row">
+                <label class="control-label col-sm-5">{{ field.label_tag }}{% if field.field.required %}<span id="required"> * </span>{% endif %}</label>
+                <div class="col-sm-7">{{ field }}</div>
+            </div>
+            <!--
+            <div class="col-sm-offset-2 col-sm-12">
+                {% if field.errors  %}
+                <div class="alert alert-danger">
+                    <p><strong>{{ field.errors }}</strong></p>
+                </div>
+                {%endif%}
+            </div>
+            -->
+        </div>
+        {% endfor %}
+                </div>
+            <div class="col-md-2">
+        <div class="col-sm-offset-2 col-sm-10">
+            <button type="submit" class="btn btn-success" onclick="this.disabled=true,this.form.submit();">Set</button>
+        </div>
+                </div>
+            </div>
+    </form>
+    <p class="lead text-center">
+    <a class="btn btn-primary btn-lg" href="{% url 'Expenditure:index' %}" role="button">Back to Home</a>
+    </p>
+</div>
+</div>
+{% endblock %}

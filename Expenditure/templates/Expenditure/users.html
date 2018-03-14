@@ -3,11 +3,16 @@
 {% block body %}
 {% load staticfiles %}
 <div class="container">
-    <div class="mt-4">
-    <a href="{% url 'Expenditure:create_new_user' %}" >
-                <button type="button" class="btn btn-dark">Create New Users</button>
-    </a>
+    {% if perms.Expenditure.add_User %}
+    <div class="row">
+        <div class="mt-4">
+            <a href="{% url 'Expenditure:create_new_user' %}" >
+                        <button type="button" class="btn btn-dark">Create New Users</button>
+            </a>
         </div>
+    </div>
+    <hr>
+    {%endif%}
     <div class="row">
         {%for user in users%}
         <div class="col-md-3">
@@ -15,9 +20,9 @@
                 <div class="card-header usrhed">
 			    {{request.session.main_event}}
 			  </div>
-			  <img class="card-img rounded-circle mx-auto mt-3" src="Expenditure/static/car1.jpg" style="height:100px;width:100px;">
-			  <div class="card-block mt-3">
-			    <h4 class="card-title text-center">{{user.user.username}}</h4>
+
+			    <div class="card-block mt-3">
+			    <h4 id="userName" class="card-title text-center">{{user.user.username}}</h4>
 			    <p class="card-text muted text-center">
                 {{user.phone_number}}
 			    </p>

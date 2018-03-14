@@ -15,7 +15,7 @@
           </div>
           <div class="col-md-6 text-right">
             <button type="button" class="btn btn-dark">Export as PDF</button>
-            <a href="{% url 'Expenditure:export_csv' 'credits' %}">
+            <a href="{% url 'Expenditure:export_csv' 'debits' %}">
                 <button type="button" class="btn btn-dark">Export as Excel</button>
             </a>
           </div>     
@@ -23,39 +23,69 @@
   </div>
 
 
-{% if debits %}
+{% if objs %}
 <div class="card-body">
-
+{% if cord %}
                 <table class="table table-bordered table-inverse">
                     <thead class="thead-inverse">
                     <tr>
                         <th>Product Name</th>
                         <th>Quantity</th>
+                        <th>Unit</th>
                         <th>Price</th>
+                        <th>Category</th>
                         <th>Tax</th>
+                        <th>Subevent</th>
                         <th>Date</th>
                         <th>User</th>
                     </tr>
                     </thead>
                     <tbody>
-                    {% for debit in debits %}
+                    {% for debit in objs %}
                     <tr>
 
                         <td>{{debit.product_name}}</td>
                         <td>{{debit.quantity}}</td>
+                        <td>{{debit.unit}}</td>
                         <td>{{debit.price}}</td>
+                        <td>{{debit.category}}</td>
                         {% if debit.tax %}
                         <td>GST</td>
                         {%else%}
                         <td>Non GST</td>
                         {% endif %}
+                        <td>{{debit.subevent}}</td>
                         <td>{{debit.date_time}}</td>
                         <td>{{debit.user}}</td>
                     </tr>
                     {% endfor %}
                     </tbody>
                 </table>
+{%else%}
+    <table class="table table-bordered table-inverse">
+                    <thead class="thead-inverse">
+                    <tr>
+                        <th>Name Of Payee</th>
+                        <th>Amount</th>
+                        <th>Description</th>
+                        <th>User</th>
+                        <th>Date</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    {% for credit in objs %}
+                    <tr>
 
+                        <td>{{credit.name_of_payee}}</td>
+                        <td>{{credit.amount}}</td>
+                        <td>{{credit.description}}</td>
+                        <td>{{credit.user}}</td>
+                        <td>{{credit.date_time}}</td>
+                    </tr>
+                    {% endfor %}
+                    </tbody>
+                </table>
+    {%endif%}
             </div>
     {% else %}
     <div class="card-body">
