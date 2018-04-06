@@ -49,36 +49,39 @@ def create_new_user(request):
                 user = form.save(commit=False)
                 username = form.cleaned_data['username']
                 email = form.cleaned_data['email']
-                if email and User.objects.get(email=email).count() > 0:
+
+                try:
+                    User.objects.get(email=email)
                     context = {
                         'error_message': 'This email address is already registered.',
                         "form": form,
                     }
                     return render(request, 'Expenditure/create_new_user.html', context)
-                password = str(random.randint(1000,9999))
-                user.set_password(password)
-                user_info_object = User_info()
-                pattern = re.compile("^[789]\d{9}$")
-                user_info_object.phone_number = request.POST['phone_number']  # before saving user validate phone_number
-                if not pattern.match(str(user_info_object.phone_number)):
-                    context = {
-                        'error_message': 'Enter 10 Digit Mobile Number in Proper Format',
-                        "form": form,
-                    }
-                    return render(request, 'Expenditure/create_new_user.html', context)
-                email_body="Hello,Your account is created on KratosWebApp by "+str(request.user.username)+"\nYour Credentials\n"+"Username:- "+str(username)+"\n"+"Password:- "+str(password)+"\n"+"Do not share your credentials.\n"
-                try:
-                    send_mail('Your account is created on KratosWebApp', email_body, 'noreply@parsifal.co', [email])
-                except Exception as e:
-                    messages.error(request, 'It seems that your network is not supporting SMTP, Try on different Network !')
-                else:
-                    user.save()
-                    user_info_object.user = user
-                    user_info_object.assets = 0
-                    user_info_object.save()
-                    g = Group.objects.get(name=str(form.cleaned_data['permissions']))
-                    g.user_set.add(user)
-                    messages.success(request, 'New User is successfully created !')
+                except:
+                    password = str(random.randint(1000,9999))
+                    user.set_password(password)
+                    user_info_object = User_info()
+                    pattern = re.compile("^[789]\d{9}$")
+                    user_info_object.phone_number = request.POST['phone_number']  # before saving user validate phone_number
+                    if not pattern.match(str(user_info_object.phone_number)):
+                        context = {
+                            'error_message': 'Enter 10 Digit Mobile Number in Proper Format',
+                            "form": form,
+                        }
+                        return render(request, 'Expenditure/create_new_user.html', context)
+                    email_body="Hello,Your account is created on KratosWebApp by "+str(request.user.username)+"\nYour Credentials\n"+"Username:- "+str(username)+"\n"+"Password:- "+str(password)+"\n"+"Do not share your credentials.\n"
+                    try:
+                        send_mail('Your account is created on KratosWebApp', email_body, 'noreply@parsifal.co', [email])
+                    except Exception as e:
+                        messages.error(request, 'It seems that your network is not supporting SMTP, Try on different Network !')
+                    else:
+                        user.save()
+                        user_info_object.user = user
+                        user_info_object.assets = 0
+                        user_info_object.save()
+                        g = Group.objects.get(name=str(form.cleaned_data['permissions']))
+                        g.user_set.add(user)
+                        messages.success(request, 'New User is successfully created !')
             context = {
                 "form": form,
                 "ongoing_event":Variables.objects.get(name="ongoing_event"),

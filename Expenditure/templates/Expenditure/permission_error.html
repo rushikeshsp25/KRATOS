@@ -4,10 +4,10 @@
 {% block body %}
 {% load staticfiles %}
 <div class="text-center">
-<img src="{%static 'access_denied.gif'%}" alt="Access Denied" >
+<img src="{%static 'access_denied.jpg'%}" alt="Access Denied" class="mt-5">
 </div>
 
-<div class="text-center">
+<div class="text-center mt-5">
     <form>
         <input type="button" value="Back to Home" class="btn btn-dark"
                onclick="window.location.href='{% url 'Expenditure:index' %}'" />
